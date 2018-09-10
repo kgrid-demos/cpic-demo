@@ -1,0 +1,79 @@
+[
+  {
+    "patient": {
+      "name": "Hank Hill",
+      "id": "0001"
+    },
+    "time": "9/10/2018, 1:31:05 PM",
+    "phenotypes": {
+      "CYP2C19": "Normal metabolizer",
+      "CYP2D6": "Poor metabolizer",
+      "UGT1A1": "Normal metabolizer"
+    },
+    "recommendations": [
+      {
+        "Atazanavir": {
+          "Implications for phenotypic measures": "Reference UGT1A1 activity; very low likelihood of bilirubin-related discontinuation of atazanavir.",
+          "Dosing recommendations": "There is no need to avoid prescribing of atazanavir based on UGT1A1 genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patient?s genotype makes this unlikely (less than about a 1 in 20 chance of stopping atazanavir because of jaundice).",
+          "Classification of recommendations": "Strong"
+        }
+      },
+      {
+        "Codeine": {
+          "Implications for phenotypic measures": "Greatly reduced morphine formation following codeine administration, leading to insufficient pain relief",
+          "Dosing recommendations": "Avoid codeine use due to lack of efficacy.",
+          "Classification of recommendations": "Strong"
+        }
+      }
+    ]
+  },
+  {
+    "patient": {
+      "name": "Hank Green",
+      "id": "0002"
+    },
+    "time": "9/10/2018, 1:31:05 PM",
+    "phenotypes": {
+      "CYP2C19": "Intermediate metabolizer",
+      "CYP2D6": "Poor metabolizer",
+      "UGT1A1": "Unknown"
+    },
+    "recommendations": [
+      {
+        "citalopram and escitalopram": {
+          "Implications for phenotypic measures": "Reduced metabolism when compared to extensive metabolizers.",
+          "Dosing recommendations": "Initiate therapy with recommended starting dose.",
+          "Classification of recommendations": "Strong"
+        }
+      },
+      {
+        "Clopidogrel": {
+          "Implications for phenotypic measures": "Reduced platelet inhibition; increased residual platelet aggregation; increased risk for adverse cardiovascular events.",
+          "Dosing recommendations": "Alternative antiplatelet therapy (if no contraindication), e.g., prasugrel, ticagrelor.",
+          "Classification of recommendations": "Moderate"
+        }
+      }
+    ]
+  },
+  {
+    "patient": {
+      "name": "Hank Aaron",
+      "id": "0003"
+    },
+    "time": "9/10/2018, 1:31:05 PM",
+    "phenotypes": {
+      "CYP2C19": "Normal metabolizer",
+      "CYP2D6": "Poor metabolizer",
+      "UGT1A1": "Unknown"
+    },
+    "recommendations": [
+      {
+        "Clopidogrel": {
+          "Implications for phenotypic measures": "Normal (EM) or increased (UM) platelet inhibition; normal (EM) or decreased (UM) residual platelet aggregation.",
+          "Dosing recommendations": "Clopidogrel: label-recommended dosage and administration",
+          "Classification of recommendations": "Strong"
+        }
+      }
+    ]
+  }
+]
