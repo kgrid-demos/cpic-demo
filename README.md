@@ -1,4 +1,3 @@
-# CPIC Kit
 KGrid CPIC Kit packages Activator, Library and CPIC Demo Site.  The kit is designed as a personnel 
 CPIC Knowledge Grid used to explore the capablities of KGrid and examing the CPIC Knowlege Objects.
 
