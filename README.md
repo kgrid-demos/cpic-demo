@@ -33,7 +33,7 @@ From the command line of the kit directory start the kit.  This script will auto
 ```
 npm start
 ```
-Once running the following components will be running [Activator](http://localhost:8082), [Library](http://localhost:8081, [CPIC Kit Site](http://localhost:8080)
+Once running the following components will be running [Activator](http://localhost:8082), [Library](http://localhost:8081), [CPIC Kit Site](http://localhost:8080)
 
 
 #### Web Demo
