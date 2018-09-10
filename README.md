@@ -27,28 +27,25 @@ CPIC Knowledge Objects into the system.
 ## Usage
 
 ### Starting KGrid CPIC Kit
-Starting the KGrid CPIC Kit will start up an instance of the KGrid Activator, KGrid Library and CPIC Kit Web server used to serve the CPIC web demo application.
+Starting the KGrid CPIC Kit will start up an instance of the KGrid Activator, KGrid Library and CPIC Kit Web. The CPIC Kit Web server will serve the CPIC web demo application.
 
-From the command line of the kit direcdtory start the kit via npm start script.  Your browser open to the CPIC Kit Web page.
+From the command line of the kit directory start the kit.  This script will automaticaly open a browser window pointing to the  CPIC Kit Web home page.
 ```
 npm start
 ```
-
-Once running the following components will be running
-* [Activator](http://localhost:8082)
-* [Library](http://localhost:8081)
-* [CPIC Kit Site](http://localhost:8080)
+Once running the following components will be running [Activator](http://localhost:8082), [Library](http://localhost:8081, [CPIC Kit Site](http://localhost:8080)
 
 
 #### Web Demo
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis arcu est, in consectetur libero venenatis sed. Duis non elementum orci, non laoreet augue. Ut non molestie mi. Sed blandit maximus sapien ornare lacinia. Mauris varius vehicula nibh, at bibendum odio porta ac. Phasellus in enim pellentesque, convallis magna ut.
 [CPIC Kit Site](http://localhost:8080)
 
 #### Command Line Demo
-
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis arcu est, in consectetur libero venenatis sed. Duis non elementum orci, non laoreet augue. Ut non molestie mi. Sed blandit maximus sapien ornare lacinia. Mauris varius vehicula nibh, at bibendum odio porta ac. Phasellus in enim pellentesque, convallis magna ut.
 ```npm run cpic cli_client/panel.csv```
 
 ### Stopping KGrid CPIC Kit
-
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis arcu est, in consectetur libero venenatis sed. Duis non elementum orci, non laoreet augue. Ut non molestie mi. Sed blandit maximus sapien ornare lacinia. Mauris varius vehicula nibh, at bibendum odio porta ac. Phasellus in enim pellentesque, convallis magna ut.
 ```
 npm stop
 ```
