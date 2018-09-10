@@ -13,7 +13,7 @@ To setup the CPIC Kit you need:
 
 * Create c*pic_kit* directory
 * Download the latest CPIC Kit *cpic-kit.zip* from GitHub, 
-[CPIC Kit](https://github.com/kgrid-objects/cpic-objects/releases/latest). 
+[CPIC Kit](https://github.com/kgrid-demos/cpic-kit/releases/latest). 
 * Unzip cpic-kit.zip into the *cpic_kit* directory
 * Via a terminal interface navigate to the *cpic_kit* directory
 
