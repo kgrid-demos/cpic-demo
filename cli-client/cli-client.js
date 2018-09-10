@@ -32,7 +32,7 @@ readGeneticPanelCSV(filename);
 function readGeneticPanelCSV(filename) {
   if (exists(filename)) {
     csvtojson()
-    .fromFile('panel.csv')
+    .fromFile(filename)
     .then(json => {
       processPatientData(json);
     });

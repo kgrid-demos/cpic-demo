@@ -4,7 +4,7 @@
   "description": "CPIC KGrid Kit",
   "main": " ",
   "bin": {
-    "cpic": "cli_client/cli-client.js"
+    "cpic": "cli-client/cli-client.js"
   },
   "scripts": {
     "postinstall": "node scripts/clean.js && node scripts/kgridInstall.js",
