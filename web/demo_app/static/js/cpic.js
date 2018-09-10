@@ -177,10 +177,11 @@ var demo = new Vue({
       this.currentstatus = s
     },
     resetapp: function () {
+      var self=this
       this.phenoready = false
       this.recommendationlist = {}
-      Object.keys(this.phenotypePanel).forEach(key => {
-        this.phenotypePanel[key] = ''
+      Object.keys(this.phenotypePanel).forEach(function(key) {
+        self.phenotypePanel[key] = ''
       })
     },
     autofill: function (i) {
@@ -194,7 +195,7 @@ var demo = new Vue({
     getdata: function () {
       var self = this
       self.genophenopromises = []
-      Object.keys(self.phenotypePanel).forEach(key => {
+      Object.keys(self.phenotypePanel).forEach(function(key){
         self.phenotypePanel[key] = ''
       })
       var i = parseInt(this.autofillSelection)
@@ -209,18 +210,18 @@ var demo = new Vue({
           console.log('pheno:')
           console.log(r)
           var phenotype = r.data.result
-          Object.keys(phenotype).forEach(key => {
+          Object.keys(phenotype).forEach(function(key) {
             self.phenotypePanel[key] = phenotype[key]
             self.appendLog('app', 'K-GRID Service Response - Phenotype result for ' + key + ' returned from ark:/' + r.data.info.ko)
           })
         })
       }).then(function () {
         var ready = false
-        Object.keys(self.phenotypePanel).forEach(key => {
+        Object.keys(self.phenotypePanel).forEach(function(key) {
           ready = ready || (self.phenotypePanel[key] != '')
         })
         self.phenoready = ready
-      }).catch(error => {
+      }).catch(function(error) {
         console.log(error)
       })
     },
@@ -241,7 +242,7 @@ var demo = new Vue({
           console.log(r)
           var rec = r.data.result
           if (typeof (rec) === 'object') {
-            Object.keys(rec).forEach(key => {
+            Object.keys(rec).forEach(function(key) {
               self.recommendationlist[key] = rec[key]
               self.appendLog('app', 'K-GRID Service Response - Recommendation result for ' + key + ' returned from ark:/' + r.data.info.ko)
             })
@@ -249,7 +250,7 @@ var demo = new Vue({
             self.appendLog('app', 'K-GRID Service Response - ' + rec + ' for ark:/' + r.data.info.ko)
           }
         })
-      }).catch(error => {
+      }).catch(function(error){
         console.log(error)
       })
     },
