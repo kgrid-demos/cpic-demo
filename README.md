@@ -38,14 +38,17 @@ Once running the following components will be running [Activator](http://localho
 
 #### Web Demo
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis arcu est, in consectetur libero venenatis sed. Duis non elementum orci, non laoreet augue. Ut non molestie mi. Sed blandit maximus sapien ornare lacinia. Mauris varius vehicula nibh, at bibendum odio porta ac. Phasellus in enim pellentesque, convallis magna ut.
+
 [CPIC Kit Site](http://localhost:8080)
 
 #### Command Line Demo
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis arcu est, in consectetur libero venenatis sed. Duis non elementum orci, non laoreet augue. Ut non molestie mi. Sed blandit maximus sapien ornare lacinia. Mauris varius vehicula nibh, at bibendum odio porta ac. Phasellus in enim pellentesque, convallis magna ut.
+Sed blandit maximus sapien ornare lacinia. Mauris varius vehicula nibh, at bibendum odio porta ac. Phasellus in enim pellentesque, convallis magna ut.
+
 ```npm run cpic cli_client/panel.csv```
 
 ### Stopping KGrid CPIC Kit
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis arcu est, in consectetur libero venenatis sed. Duis non elementum orci, non laoreet augue. Ut non molestie mi. Sed blandit maximus sapien ornare lacinia. Mauris varius vehicula nibh, at bibendum odio porta ac. Phasellus in enim pellentesque, convallis magna ut.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis arcu est, in consectetur libero venenatis sed. Duis non elementum orci, non laoreet augue. Ut non molestie mi. 
+
 ```
 npm stop
 ```
