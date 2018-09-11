@@ -12,7 +12,8 @@
     "start": "scripty",
     "stop": "scripty",
     "package": "node scripts/package.js",
-    "cpic": "node cli_client/cli-client.js"
+    "cpic": "node cli-client/cli-client.js",
+    "build": "scripty"
   },
   "author": "KGrid Team",
   "license": "MIT",
