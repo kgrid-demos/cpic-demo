@@ -6,10 +6,29 @@ Vue.component('recomtile', {
     'reckey',
     'recindex'
   ],
+  data: function(){
+    return {
+      reclabel: {phenotypes:"Phenotypes",classification:"Classification of recommendations", content:"Dosing recommendations",implication:"Implications for phenotypic measures"}
+    }
+  },
   computed: {
+    recrender: function() {
+      var obj ={}
+      var phenovalue = ''
+      for(var key in this.recmodel.phenotypes){
+        if(phenovalue!=''){
+          phenovalue = phenovalue+ " "
+        }
+        phenovalue=phenovalue+key+" "+this.recmodel.phenotypes[key]
+      }
+      obj.phenotypes=phenovalue
+      obj.classification = this.recmodel.recommendation.classification
+      obj.implication = this.recmodel.recommendation.implication
+      obj.content=this.recmodel.recommendation.content
+      return obj
+    },
     recommendation: function () {
-      var k = 'Dosing recommendations'
-      return this.recmodel[k]
+      return this.recmodel.content
     }
   }
 })
@@ -47,7 +66,7 @@ var demo = new Vue({
     phenotypePanel: {},
     diplotypePanel: {},
     currentstatus: '',
-    recommendationlist: {}
+    recommendationlist: []
 	  }
   },
   created: function () {
@@ -179,7 +198,7 @@ var demo = new Vue({
     resetapp: function () {
       var self=this
       this.phenoready = false
-      this.recommendationlist = {}
+      this.recommendationlist = []
       Object.keys(this.phenotypePanel).forEach(function(key) {
         self.phenotypePanel[key] = ''
       })
@@ -228,7 +247,7 @@ var demo = new Vue({
     getrecommendation: function () {
       var self = this
       self.drugpromises = []
-      self.recommendationlist = {}
+      self.recommendationlist = []
       var i = parseInt(this.autofillSelection)
       for (var drug in self.recommendationkolist) {
         if (self.recommendationkolist[drug] != '') {
@@ -242,10 +261,8 @@ var demo = new Vue({
           console.log(r)
           var rec = r.data.result
           if (typeof (rec) === 'object') {
-            Object.keys(rec).forEach(function(key) {
-              self.recommendationlist[key] = rec[key]
-              self.appendLog('app', 'K-GRID Service Response - Recommendation result for ' + key + ' returned from ark:/' + r.data.info.ko)
-            })
+              self.recommendationlist.push(rec)
+              self.appendLog('app', 'K-GRID Service Response - Recommendation result for ' + rec.drug + ' returned from ark:/' + r.data.info.ko)
           } else {
             self.appendLog('app', 'K-GRID Service Response - ' + rec + ' for ark:/' + r.data.info.ko)
           }

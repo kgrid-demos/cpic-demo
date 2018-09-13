@@ -83,7 +83,7 @@
                   </div>
                   <div class="tab-pane active">
                         <ul id="reclist" style="list-style:none; width: 100%;overflow-y:auto;text-align:left;font-size: 18px;padding:0;max-height:780px;margin:0;">
-                            <li v-for='(value, key, index) in recommendationlist' ><recomtile :recmodel='value' :reckey='key' :recindex='index'></recomtile></li>
+                            <li v-for='(rec, index) in recommendationlist' ><recomtile :recmodel='rec' :reckey='rec.drug' :recindex='index'></recomtile></li>
                         </ul>
                   </div>
           </div>
@@ -112,9 +112,9 @@
 							data-placement="top" v-bind:title="recmodel.status"><span>{{reckey}}</span>
 					</div>
 				</div>
-				<div class="row kg-rec pad-top10" v-for='(value,key,index) in recmodel'>
+				<div class="row kg-rec pad-top10" v-for='(value, key,index) in recrender'>
           <div class="col-md-4 col-sm-4 col-xs-4 ">
-            <span><small>{{key}}</small></span>
+            <span><small>{{reclabel[key]}}</small></span>
           </div>
           <div class="col-md-8 col-sm-8 col-xs-8 ">
             <span>{{value}}</span>
