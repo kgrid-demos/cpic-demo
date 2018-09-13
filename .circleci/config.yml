@@ -7,8 +7,7 @@ jobs:
   build:
     docker:
     # specify the version you desire here
-    - image: circleci/node:7.10
-    - image: circleci/openjdk:8-jdk
+    - image: circleci/openjdk:8-jdk-node
 
     working_directory: ~/repo
 
@@ -23,6 +22,7 @@ jobs:
         - v1-dependencies-
 
     - run: npm install
+    - run: npm start
 
   release:
     docker:
@@ -33,7 +33,6 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: npm start
       - run: npm run package
 
       - store_artifacts:
