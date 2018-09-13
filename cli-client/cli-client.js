@@ -6,7 +6,7 @@ const exists = require('fs').existsSync;
 const csvtojson = require('csvtojson');
 
 const genophenokolistPath = '/99999/fk4qj7sz2t/v0.0.3/genophenokolist';
-const druglistPath = '/99999/fk4qj7sz2s/v0.0.3/druglist';
+const druglistPath = '/99999/fk4qj7sz2s/v0.0.4/druglist';
 var host;
 var filename;
 var results = [];
@@ -14,8 +14,8 @@ var results = [];
 program
   .version('0.1.0')
   .description('Use the CPIC toolkit to process panels of patient data')
-  .option('-p, --pheno', 'display phenotype results only')
-  .option('-r, --recs', 'display recommendation results only')
+  .option('-p, --pheno', 'output phenotype results only')
+  .option('-r, --recs', 'output recommendation results only')
   .arguments('<dataFilename> [host]').action((fileArg, hostArg) => {
     filename = fileArg;
     host = hostArg || 'http://localhost:8082';
