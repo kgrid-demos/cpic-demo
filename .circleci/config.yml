@@ -8,6 +8,7 @@ jobs:
     docker:
     # specify the version you desire here
     - image: circleci/node:7.10
+    - image: circleci/openjdk:8-jdk
 
     working_directory: ~/repo
 
@@ -23,17 +24,6 @@ jobs:
 
     - run: npm install
 
-  test:
-    docker:
-    - image: circleci/node:7.10
-
-    working_directory: ~/repo
-
-    steps:
-      - run: npm install
-      - run: npm start
-      - run: npm stop
-
   release:
     docker:
     - image: circleci/node:7.10
@@ -41,6 +31,8 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      - checkout
+      - run: npm install
       - run: npm run package
 
       - store_artifacts:
@@ -51,13 +43,10 @@ workflows:
   build-test-approval-release:
     jobs:
      - build
-     - test:
-         requires:
-         - build
      - hold:
          type: approval
          requires:
-         - test
+         - build
      - release:
          requires:
           - hold
