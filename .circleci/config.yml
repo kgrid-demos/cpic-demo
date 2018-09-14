@@ -23,6 +23,10 @@ jobs:
 
     - run: npm install
     - run: npm start
+    - run: mkdir test-results && npm test
+
+    - store_test_results:
+        path: test-results
 
   release:
     docker:
