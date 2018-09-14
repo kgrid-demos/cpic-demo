@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "729013c1-db4f-4881-9c21-a7ac5073c4a3",
+		"name": "cpic_kit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CYP2D6 Phenotype Intermediate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f60880f6-c363-4bfe-a5e7-fb590bcba60b",
+						"type": "text/javascript",
+						"exec": [
+							"// example using pm.response.to.have",
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Intermediate\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData.result)",
+							"    pm.expect(jsonData.result.CYP2D6).to.eql(\"Intermediate metabolizer\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"CYP2D6\":\"*8/*9\"}"
+				},
+				"url": {
+					"raw": "{{activator.url}}/99999/fk49z9gr7p/v0.0.5/phenotype",
+					"host": [
+						"{{activator.url}}"
+					],
+					"path": [
+						"99999",
+						"fk49z9gr7p",
+						"v0.0.5",
+						"phenotype"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CYP2D6 Phenotype TBD",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "35b0eab8-07cf-485c-9dbe-fa1511f9503d",
+						"type": "text/javascript",
+						"exec": [
+							"// example using pm.response.to.have",
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"TDB\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData.result)",
+							"    pm.expect(jsonData.result.CYP2D6).to.eql(\"TBD\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"CYP2D6\":\"*13/*86\"}"
+				},
+				"url": {
+					"raw": "{{activator.url}}/99999/fk49z9gr7p/v0.0.5/phenotype",
+					"host": [
+						"{{activator.url}}"
+					],
+					"path": [
+						"99999",
+						"fk49z9gr7p",
+						"v0.0.5",
+						"phenotype"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CYP2D6 Phenotype Ultrarapid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7bba5e7a-01ef-454f-bfe3-9e5ec28590e4",
+						"type": "text/javascript",
+						"exec": [
+							"// example using pm.response.to.have",
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Ultrarapid\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData.result)",
+							"    pm.expect(jsonData.result.CYP2D6).to.eql(\"Ultrarapid metabolizer\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"CYP2D6\":\"*6xN/*35xN>2\"}"
+				},
+				"url": {
+					"raw": "{{activator.url}}/99999/fk49z9gr7p/v0.0.5/phenotype",
+					"host": [
+						"{{activator.url}}"
+					],
+					"path": [
+						"99999",
+						"fk49z9gr7p",
+						"v0.0.5",
+						"phenotype"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CYP2D6 Phenotype Unknown",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3859334-6590-4f50-b3ca-9bcaf72c6f77",
+						"type": "text/javascript",
+						"exec": [
+							"// example using pm.response.to.have",
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"bad diplotype\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData.result)",
+							"    pm.expect(jsonData.result.CYP2D6).to.eql(\"Unknown\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"CYP2D6\":\"nothing\"}"
+				},
+				"url": {
+					"raw": "{{activator.url}}/99999/fk49z9gr7p/v0.0.5/phenotype",
+					"host": [
+						"{{activator.url}}"
+					],
+					"path": [
+						"99999",
+						"fk49z9gr7p",
+						"v0.0.5",
+						"phenotype"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CYP2D6 Phenotype Not JSON",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3859334-6590-4f50-b3ca-9bcaf72c6f77",
+						"type": "text/javascript",
+						"exec": [
+							"// example using pm.response.to.have",
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"bad diplotype\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData.result)",
+							"    pm.expect(jsonData.result.CYP2D6).to.eql(\"Unknown\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"CYP2D6\":\"nothing\"}"
+				},
+				"url": {
+					"raw": "{{activator.url}}/99999/fk49z9gr7p/v0.0.5/phenotype",
+					"host": [
+						"{{activator.url}}"
+					],
+					"path": [
+						"99999",
+						"fk49z9gr7p",
+						"v0.0.5",
+						"phenotype"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "07b1210a-bdb4-4ba6-b5a6-1f79ce4764c2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8a98cc8e-3a4d-46ab-bd3b-7fad78e6287f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
