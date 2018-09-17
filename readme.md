@@ -2,8 +2,7 @@
 [![CircleCI](https://circleci.com/gh/kgrid-demos/cpic-kit.svg?style=svg)](https://circleci.com/gh/kgrid-demos/cpic-kit)
 
 
-KGrid CPIC Kit packages Activator, Library and CPIC Demo Site.  The kit is designed as a personnel 
-CPIC Knowledge Grid used to explore the capablities of KGrid and examing the CPIC Knowlege Objects.
+KGrid CPIC Kit packages [Activator](http://kgrid.org/kgrid-activator/), [Library](http://kgrid.org/kgrid-library) and CPIC Demo Site.  The kit is designed as a personnel CPIC Knowledge Grid used to explore the capablities of KGrid and [CPIC Knowlege Objects](https://kgrid-objects.github.io/cpic-objects/).
 
 ## Table of Contents
    * [Installation](#installation)
