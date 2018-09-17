@@ -11,7 +11,9 @@
     "clean": "node scripts/clean.js",
     "start": "scripty",
     "stop": "scripty",
-    "test":"newman run tests/cpic_kit.postman_collection.json -e tests/kit_test.postman_environment.json --reporters junit --reporter-junit-export test-results",
+    "test:postman": "newman run tests/cpic_kit.postman_collection.json -e tests/kit_test.postman_environment.json --reporters  cli,junit --reporter-junit-export test-results",
+    "test:cli": "jest",
+    "test":"npm run test:postman && npm run test:cli",
     "package": "scripty",
     "cpic": "node cli-client/cli-client.js"
   },
@@ -27,6 +29,7 @@
     "fs": "0.0.1-security",
     "fs-extra": "^7.0.0",
     "http-server": "^0.11.1",
+    "jest": "^23.6.0",
     "jsonpath": "^1.0.0",
     "newman": "^4.1.0",
     "request": "^2.88.0",
