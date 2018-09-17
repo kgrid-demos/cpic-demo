@@ -21,36 +21,24 @@ jobs:
         # fallback to using the latest cache if no exact match is found
         - v1-dependencies-
 
-    - run: npm install
-    - run: npm start
-    - run: mkdir test-results && npm test
+    - run:
+         name: Install the CPIC Kit
+         command: npm install
+
+    - run:
+        name: Start the CPIC Kit (activator,library, demo site)
+        command: npm start
+
+    - run:
+        name: Run smoke tests on the CPIC Kit
+        command: mkdir test-results && npm test
+
+    - run:
+        name: Create CPIC Kit zip ready for deployment
+        command: npm run package
+
+    - store_artifacts:
+          path: dist
 
     - store_test_results:
         path: test-results
-
-  release:
-    docker:
-    - image: circleci/node:7.10
-
-    working_directory: ~/repo
-
-    steps:
-      - checkout
-      - run: npm install
-      - run: npm run package
-
-      - store_artifacts:
-            path: dist
-
-workflows:
-  version: 2
-  build-test-approval-release:
-    jobs:
-     - build
-     - hold:
-         type: approval
-         requires:
-         - build
-     - release:
-         requires:
-          - hold

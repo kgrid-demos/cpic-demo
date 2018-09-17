@@ -1,7 +1,7 @@
 [![CircleCI](https://circleci.com/gh/kgrid-demos/cpic-kit.svg?style=svg)](https://circleci.com/gh/kgrid-demos/cpic-kit)
 
-This readme is design to explain out to contribute the CPIC Kit development.  We will outline the 
-tools and techniques to code, test and publish the CPIC Kit.  
+This readme is designed to aid CPIC Kit developers.  We will outline the tools and techniques to 
+code, test and publish the CPIC Kit.  
 
 ## Requirements
 To setup the CPIC Kit you need:
