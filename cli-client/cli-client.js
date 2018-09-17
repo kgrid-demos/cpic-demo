@@ -5,8 +5,8 @@ const fs = require('fs-extra');
 const exists = require('fs').existsSync;
 const csvtojson = require('csvtojson');
 
-const genophenokolistPath = '/99999/fk4qj7sz2t/v0.0.3/genophenokolist';
-const druglistPath = '/99999/fk4qj7sz2s/v0.0.4/druglist';
+const genophenokolistPath = '/99999/fk4qj7sz2t/v0.0.4/genophenokolist';
+const druglistPath = '/99999/fk4qj7sz2s/v0.0.5/druglist';
 var host;
 var filename;
 var results = [];
