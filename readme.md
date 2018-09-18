@@ -22,7 +22,7 @@ To setup the CPIC Kit you need:
 - [Node.js](http://nodejs.org/)
 
 With [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-and [Node.js](http://nodejs.org/) installed we can download CPIC Kit.
+and [Node.js](http://nodejs.org/) installed we can download the CPIC Kit.
 
 * Download the latest CPIC Kit *cpic-kit.zip* from GitHub, 
 [CPIC Kit](https://github.com/kgrid-demos/cpic-kit/releases/latest). 
@@ -35,7 +35,6 @@ npm install
 ```
 The install process is downloading the KGrid applications (library and activator) and loading the 
 CPIC Knowledge Objects into the system.
-
 
 ## Usage
 
@@ -50,14 +49,12 @@ Once running the following components will be running [Activator](http://localho
 
 
 #### Web Demo
-This a patient's clinical lab report of genotype and diplotype could use the CPIC objects to determine a patient’s predicted metabolizer phenotype and 
-therapeutic recommendations for a set of drugs.
+This a patient's clinical lab report of genotype and diplotype could use the CPIC objects to determine a patient’s predicted metabolizer phenotype and therapeutic recommendations for a set of drugs.
 
 [CPIC Kit Site](http://localhost:8080)
 
 #### Command Line Demo
-Takes in multiple patient clinical lab reports (genotype and diplotype) see [panel.csv](https://github.com/kgrid-demos/cpic-kit/blob/master/cli-client/panel.csv) and using the 
-CPIC objects to determines a patient’s predicted metabolizer phenotype and therapeutic recommendations for a set of drugs.
+Takes in multiple patient clinical lab reports (genotype and diplotype) see [panel.csv](https://github.com/kgrid-demos/cpic-kit/blob/master/cli-client/panel.csv) and using the CPIC objects to determines a patient’s predicted metabolizer phenotype and therapeutic recommendations for a set of drugs.
 
 ```npm run cpic cli_client/panel.csv``` 
 
