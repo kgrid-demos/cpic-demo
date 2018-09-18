@@ -11,6 +11,7 @@ KGrid CPIC Kit packages [Activator](http://kgrid.org/kgrid-activator/), [Library
      * [Stop the Kit](#stopping-kgrid-cpic-kit)
    * [Development](#development)
      * [Testing the Kit](#testing)
+     * [Continuous Integration](#continuous-integration)
      * [Packing the Kit](#packaging-the-kit-for-distribution)
      
 ## Installation
@@ -85,11 +86,14 @@ You can run the tests via the _test_ npm command.
 
 ```npm test```
 
+#### Continuous Integration
+The CPIC Kit utilizes [CircleCI](https://circleci.com/gh/kgrid-demos/cpic-kit) to build/test/package the kit. 
+
 #### Packaging the Kit for distribution 
 Publishing a version of the kit requires you to create a new CPIC Kit zip file and creating a new
 [CPIC Kit GitHub release](https://github.com/kgrid-objects/cpic-objects/releases) in the 
 [CPIC Kit repository](https://github.com/kgrid-objects/cpic-objects).  The _package_ npm command will zip
-up the CPIC Kit required files into a cpic-kit.zip in the dist directory.
+up the CPIC Kit required files into a cpic-kit.zip in the _dist_ directory.
 
 ```npm run package```
 
