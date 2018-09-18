@@ -8,20 +8,20 @@ Vue.component('recomtile', {
   ],
   data: function(){
     return {
-      reclabel: {phenotypes:"Phenotypes",classification:"Classification of recommendations", content:"Dosing recommendations",implication:"Implications for phenotypic measures"}
+      reclabel: {genes:"Genes",classification:"Classification of recommendations", content:"Dosing recommendations",implication:"Implications for phenotypic measures"}
     }
   },
   computed: {
     recrender: function() {
       var obj ={}
       var phenovalue = ''
-      for(var key in this.recmodel.phenotypes){
+      for(var key in this.recmodel.genes){
         if(phenovalue!=''){
           phenovalue = phenovalue+ " "
         }
-        phenovalue=phenovalue+key+" "+this.recmodel.phenotypes[key]
+        phenovalue=phenovalue+key+" "+this.recmodel.genes[key].phenotype
       }
-      obj.phenotypes=phenovalue
+      obj.genes=phenovalue
       obj.classification = this.recmodel.recommendation.classification
       obj.implication = this.recmodel.recommendation.implication
       obj.content=this.recmodel.recommendation.content

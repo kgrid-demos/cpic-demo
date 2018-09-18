@@ -38,7 +38,11 @@
     <header>
       <div class="container color-scheme pad-l-30 header-title noselect">
         <h1>CPIC Kit Demo App
-        <i class="fas fa-cog float-r" @click='showsetting'></i></h1>
+          <div class='float-r'>
+          <i class="fas fa-cog " @click='showsetting'></i>
+          <a href='https://demo.kgrid.org/cpic-kit#web-demo' target="_blank" style='color:#666;'><i class="fas fa-info-circle" ></i></a>
+        </div>
+      </h1>
       </div>
     </header>
     <div class="container">
@@ -69,7 +73,7 @@
                 <tr class=" " v-for='(value, key) in diplotypePanel'>
                     <td class='noselect' :class="{active:value!=''}" style='width:20%;'>{{key}} </td>
                     <td :class="{active:value!=''}" style='width:30%;'> <b-form-input  type="text" v-model='diplotypePanel[key]' ></b-form-input>  </td>
-                    <td  class='pheno noselect' style='width:50%;font-size:85%;text-align:center;' :class="{active:value!=''}">{{phenotypePanel[key]}}</td>
+                    <td  class='pheno noselect' style='width:50%;font-size:85%;text-align:center;' :class="{active:value!=''}">{{phenotypePanel[key].phenotype}}</td>
                 </tr>
               </tbody>
             </table>
