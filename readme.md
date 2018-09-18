@@ -12,7 +12,7 @@ KGrid CPIC Kit packages [Activator](http://kgrid.org/kgrid-activator/), [Library
    * [Development](#development)
      * [Testing the Kit](#testing)
      * [Continuous Integration](#continuous-integration)
-     * [Packing the Kit](#packaging-the-kit-for-distribution)
+     * [Packaging the Kit](#packaging-the-kit-for-distribution)
      
 ## Installation
 
