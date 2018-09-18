@@ -19,7 +19,11 @@ Vue.component('recomtile', {
         if(phenovalue!=''){
           phenovalue = phenovalue+ " "
         }
-        phenovalue=phenovalue+key+" "+this.recmodel.genes[key].phenotype
+        if(this.recmodel.genes[key].phenotype){
+          phenovalue=phenovalue+key+" "+this.recmodel.genes[key].phenotype
+        } else {
+          phenovalue=phenovalue+key+" "+this.recmodel.genes[key].diplotype
+        }
       }
       obj.genes=phenovalue
       obj.classification = this.recmodel.recommendation.classification
@@ -200,7 +204,7 @@ var demo = new Vue({
       this.phenoready = false
       this.recommendationlist = []
       Object.keys(this.phenotypePanel).forEach(function(key) {
-        self.phenotypePanel[key] = ''
+        self.phenotypePanel[key] = {}
       })
     },
     autofill: function (i) {
@@ -215,14 +219,20 @@ var demo = new Vue({
       var self = this
       self.genophenopromises = []
       Object.keys(self.phenotypePanel).forEach(function(key){
-        self.phenotypePanel[key] = ''
+        self.phenotypePanel[key] = {}
       })
       var i = parseInt(this.autofillSelection)
       for (var gene in self.patientsamples[i].diplotype) {
-        if (self.patientsamples[i].diplotype[gene] != '' && self.genophenokolist[gene] != '') {
-          self.appendLog('app', self.logtext.request + self.genophenokolist[gene])
-          self.genophenopromises.push(self.postJsonReq(self.genophenokolist[gene] + self.genopheno_endpoint, self.diplotypePanel))
+        if (self.patientsamples[i].diplotype[gene] != '' ) {
+          if (self.genophenokolist[gene] != '') {
+            self.appendLog('app', self.logtext.request + self.genophenokolist[gene])
+            self.genophenopromises.push(self.postJsonReq(self.genophenokolist[gene] + self.genopheno_endpoint, self.diplotypePanel))
+          }else {
+            self.phenotypePanel[gene].diplotype=self.diplotypePanel[gene]
+            self.phenotypePanel[gene].phenotype=''
+          }
         }
+
       }
       axios.all(self.genophenopromises).then(function (results) {
         results.forEach(function (r) {
@@ -230,14 +240,14 @@ var demo = new Vue({
           console.log(r)
           var phenotype = r.data.result
           Object.keys(phenotype).forEach(function(key) {
-            self.phenotypePanel[key] = phenotype[key]
+            self.phenotypePanel[key] = JSON.parse(JSON.stringify(phenotype[key]))
             self.appendLog('app', 'K-GRID Service Response - Phenotype result for ' + key + ' returned from ark:/' + r.data.info.ko)
           })
         })
       }).then(function () {
         var ready = false
         Object.keys(self.phenotypePanel).forEach(function(key) {
-          ready = ready || (self.phenotypePanel[key] != '')
+          ready = ready || (self.phenotypePanel[key].phenotype != '')
         })
         self.phenoready = ready
       }).catch(function(error) {
