@@ -56,7 +56,7 @@ This a patient's clinical lab report of genotype and diplotype could use the CPI
 #### Command Line Demo
 Takes in multiple patient clinical lab reports (genotype and diplotype) see [panel.csv](https://github.com/kgrid-demos/cpic-kit/blob/master/cli-client/panel.csv) and using the CPIC objects to determines a patient’s predicted metabolizer phenotype and therapeutic recommendations for a set of drugs.
 
-```npm run cpic cli_client/panel.csv``` 
+```npm run cpic cli-client/panel.csv``` 
 
 ### Stopping KGrid CPIC Kit
 Stopping the running KGrid activator, library and demo web site can be accomplished with npm stop command
