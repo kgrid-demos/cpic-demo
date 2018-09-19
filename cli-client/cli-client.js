@@ -14,8 +14,6 @@ var results = [];
 program
   .version('0.1.0')
   .description('Use the CPIC toolkit to process panels of patient data')
-  .option('-p, --pheno', 'output phenotype results only')
-  .option('-r, --recs', 'output recommendation results only')
   .arguments('<dataFilename> [host]').action((fileArg, hostArg) => {
     filename = fileArg;
     host = hostArg || 'http://localhost:8082';
@@ -23,7 +21,7 @@ program
     console.log('');
     console.log('Examples:');
     console.log('');
-    console.log('  $ cpic -p panel.csv http://localhost:8081 > results.json');
+    console.log('  $ cpic panel.csv http://localhost:8081 > results.json');
     console.log('  $ cpic patient-data.csv https://kgrid-activator.herokuapp.com');
   }).parse(process.argv);
 
@@ -44,7 +42,6 @@ function readGeneticPanelCSV(filename) {
 function processPatientData (data) {
   var promises = data.map(function (patientData) {
 
-    var patient = patientData.patient;
     var patientRecommendations = [];
 
     // Convert the string list of prescriptions separated by spaces into an
@@ -58,9 +55,9 @@ function processPatientData (data) {
     // Get genotype to phenotype ko addresses, then generate phenotype panel for patient
     // then generate drug recommendations, then aggregate the results in an object
     return postJsonRequest(genophenokolistPath, patientData.diplotype)
-    .then(response => generatePhentotypes(response.data.result, patientData))
+    .then(response => generatePhentotypes(response.data.result, patientData.diplotype))
     .then(phenotypePanel => generateDrugRecs(drugObj, phenotypePanel, patientRecommendations))
-    .then(phenotypePanel => aggregateResults(patient, phenotypePanel, patientRecommendations))
+    .then(phenotypePanel => aggregateResults(patientData.patient, patientRecommendations))
     .catch(error => {
       if(error.response) {
         console.error(error.response.data);
@@ -87,38 +84,23 @@ function postJsonRequest(path, data) {
   });
 }
 
-function aggregateResults(patient, phenotypePanel, patientRecommendations) {
+function aggregateResults(patient, patientRecommendations) {
   var currentTime = new Date().toLocaleString('en-US');
-  if(program.pheno) {
-    patientResult = {
-      "patient": patient,
-      "time": currentTime,
-      "phenotypes": phenotypePanel
-    };
-  } else if(program.recs) {
-    patientResult = {
-      "patient": patient,
-      "time": currentTime,
-      "recommendations": patientRecommendations
-    };
-  } else {
-    patientResult = {
-      "patient": patient,
-      "time": currentTime,
-      "phenotypes": phenotypePanel,
-      "recommendations": patientRecommendations
-    };
-  }
+  patientResult = {
+    "patient": patient,
+    "time": currentTime,
+    "recommendations": patientRecommendations
+  };
   results.push(patientResult);
 }
 
-function generatePhentotypes(diplotypeObjectMap, patientData) {
+function generatePhentotypes(diplotypeObjectMap, diplotypePanel) {
   var gToPMap = diplotypeObjectMap;
 
   // Create an array of genotype to phenotype request promises
   var gToPPromises = Object.keys(gToPMap).map(function (key) {
     if (gToPMap[key] != '' && gToPMap[key] != null) {
-      return postJsonRequest(gToPMap[key] + '/phenotype', patientData.diplotype);
+      return postJsonRequest(gToPMap[key] + '/phenotype', diplotypePanel);
     }
   }).filter(element => {return element}); // gets rid of null or undefined elements
 
@@ -130,6 +112,14 @@ function generatePhentotypes(diplotypeObjectMap, patientData) {
       Object.keys(phenotype).map(key => {
         phenotypePanel[key] = phenotype[key];
       });
+    });
+    // Add in diplotypes that weren't processed in the first stage
+    Object.keys(diplotypePanel).forEach(gene => {
+      if(!phenotypePanel[gene] && diplotypePanel[gene]){
+        phenotypePanel[gene] = {};
+        phenotypePanel[gene].diplotype = diplotypePanel[gene];
+        phenotypePanel[gene].phenotype = '';
+      }
     });
     return phenotypePanel;
   })
