@@ -3,8 +3,8 @@
   "library_url": "http://localhost:8081",
   "user_url": "./",
   "activator_url":"http://localhost:8082",
-  "genophenolookupko":{"id":"/99999/fk4qj7sz2t/v0.0.3","endpoint":"/genophenokolist"},
-  "druglookupko":{"id":"/99999/fk4qj7sz2s/v0.0.4","endpoint":"/druglist"},
+  "genophenolookupko":{"id":"/99999/fk4qj7sz2t/v0.0.4","endpoint":"/genophenokolist"},
+  "druglookupko":{"id":"/99999/fk4qj7sz2s/v0.0.5","endpoint":"/druglist"},
   "genopheno_endpoint":"/phenotype",
   "recommendation_endpoint":"/dosingrecommendation"
 }
