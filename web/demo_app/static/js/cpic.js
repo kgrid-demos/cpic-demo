@@ -222,8 +222,8 @@ var demo = new Vue({
         self.phenotypePanel[key] = {}
       })
       var i = parseInt(this.autofillSelection)
-      for (var gene in self.patientsamples[i].diplotype) {
-        if (self.patientsamples[i].diplotype[gene] != '' ) {
+      for (var gene in self.diplotypePanel) {
+        if (self.diplotypePanel[gene] != '' ) {
           if (self.genophenokolist[gene] != '') {
             self.appendLog('app', self.logtext.request + self.genophenokolist[gene])
             self.genophenopromises.push(self.postJsonReq(self.genophenokolist[gene] + self.genopheno_endpoint, self.diplotypePanel))
