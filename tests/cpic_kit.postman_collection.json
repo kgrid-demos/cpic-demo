@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f60880f6-c363-4bfe-a5e7-fb590bcba60b",
+						"id": "7b7965bb-e0ff-4072-b786-5fb968fabfea",
 						"type": "text/javascript",
 						"exec": [
 							"// example using pm.response.to.have",
@@ -22,7 +22,7 @@
 							"pm.test(\"Intermediate\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    console.log(jsonData.result)",
-							"    pm.expect(jsonData.result.CYP2D6).to.eql(\"Intermediate metabolizer\");",
+							"    pm.expect(jsonData.result.CYP2D6.phenotype).to.eql(\"Intermediate metabolizer\");",
 							"});"
 						]
 					}
@@ -61,7 +61,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "35b0eab8-07cf-485c-9dbe-fa1511f9503d",
+						"id": "c87938a0-28a8-44d4-b4d3-a5f22d9aecaf",
 						"type": "text/javascript",
 						"exec": [
 							"// example using pm.response.to.have",
@@ -72,7 +72,7 @@
 							"pm.test(\"TDB\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    console.log(jsonData.result)",
-							"    pm.expect(jsonData.result.CYP2D6).to.eql(\"TBD\");",
+							"    pm.expect(jsonData.result.CYP2D6.phenotype).to.eql(\"TBD\");",
 							"});"
 						]
 					}
@@ -111,7 +111,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "7bba5e7a-01ef-454f-bfe3-9e5ec28590e4",
+						"id": "d7b1bc58-b12e-45d2-8a88-64e47d7077ed",
 						"type": "text/javascript",
 						"exec": [
 							"// example using pm.response.to.have",
@@ -122,7 +122,7 @@
 							"pm.test(\"Ultrarapid\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    console.log(jsonData.result)",
-							"    pm.expect(jsonData.result.CYP2D6).to.eql(\"Ultrarapid metabolizer\");",
+							"    pm.expect(jsonData.result.CYP2D6.phenotype).to.eql(\"Ultrarapid metabolizer\");",
 							"});"
 						]
 					}
@@ -161,7 +161,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "d3859334-6590-4f50-b3ca-9bcaf72c6f77",
+						"id": "5e6afb0c-4124-449b-8479-856a83af1c20",
 						"type": "text/javascript",
 						"exec": [
 							"// example using pm.response.to.have",
@@ -172,7 +172,7 @@
 							"pm.test(\"bad diplotype\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    console.log(jsonData.result)",
-							"    pm.expect(jsonData.result.CYP2D6).to.eql(\"Unknown\");",
+							"    pm.expect(jsonData.result.CYP2D6.phenotype).to.eql(\"Unknown\");",
 							"});"
 						]
 					}
@@ -211,7 +211,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "d3859334-6590-4f50-b3ca-9bcaf72c6f77",
+						"id": "4c5edc05-3e97-4452-b172-4e155efb77c0",
 						"type": "text/javascript",
 						"exec": [
 							"// example using pm.response.to.have",
@@ -222,7 +222,57 @@
 							"pm.test(\"bad diplotype\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    console.log(jsonData.result)",
-							"    pm.expect(jsonData.result.CYP2D6).to.eql(\"Unknown\");",
+							"    pm.expect(jsonData.result.CYP2D6.phenotype).to.eql(\"Unknown\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"CYP2D6\":\"nothing\"}"
+				},
+				"url": {
+					"raw": "{{activator.url}}/99999/fk49z9gr7p/v0.0.6/phenotype",
+					"host": [
+						"{{activator.url}}"
+					],
+					"path": [
+						"99999",
+						"fk49z9gr7p",
+						"v0.0.6",
+						"phenotype"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CYP2D6 Phenotype Not JSON Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8cf4cd9e-a259-44d7-b51a-d8b7a4d0140f",
+						"type": "text/javascript",
+						"exec": [
+							"// example using pm.response.to.have",
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"bad diplotype\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData.result)",
+							"    pm.expect(jsonData.result.CYP2D6.phenotype).to.eql(\"Unknown\");",
 							"});"
 						]
 					}
