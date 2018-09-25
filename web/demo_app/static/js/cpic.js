@@ -141,6 +141,22 @@ var demo = new Vue({
     }
   },
   watch: {
+    selectedactivator:function(){
+      var self = this
+      axios.all([
+        self.getdruglist,
+        self.getg2pkolist
+        ]).then(axios.spread(function (druglist, genophenolist) {
+     self.appendLog('app', self.logtext.request + self.genophenolookupko.id)
+     self.appendLog('app', 'K-GRID Service Response - Geno to Pheno KO list returned from Knowledge Object ark:' + self.genophenolookupko.id)
+            self.appendLog('app', self.logtext.request + self.druglookupko.id)
+     self.appendLog('app', 'K-GRID Service Response - Gene drug table returned from Knowledge Object ark:' + self.druglookupko.id)
+     self.recommendationkolist = druglist.data.result
+     self.genophenokolist = genophenolist.data.result
+   })).catch(function (error) {
+     console.log(error)
+   })
+    },
     autofillSelection: function () {
       var self = this
       this.phenoready = false
