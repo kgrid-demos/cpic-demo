@@ -1,4 +1,6 @@
-patient.name, patient.id, diplotype.CFTR, diplotype.CYP2C19, diplotype.CYP2C9, diplotype.CYP2D6, diplotype.CYP3A5, diplotype.CYP4F2, diplotype.DPYD, diplotype.G6PD, diplotype.HLA-A, diplotype.HLA-B, diplotype.IFNL3, diplotype.SLCO1B1, diplotype.TPMT, diplotype.UGT1A1, diplotype.VKORC1, prescriptions
-Hank Hill,1, , *1/*11,, *3/*3,,,,,,*1/*1,,,,*1/*1,,atazanavir codeine abacavir
-Hank Green,2,,*1/*7,*3/*3,*3/*4,,,,,,,,,,,,escitalopram clopidogrel
-Hank Aaron,3,,*1/*1,*1/*1,*3/*3,,,,,,*1/*57:01,,,,,,clopidogrel abacavir
+patient.name, patient.id, diplotype.CYP2C19, diplotype.CYP2C9, diplotype.CYP2D6, diplotype.CYP3A5, diplotype.HLA-B, diplotype.SLCO1B1, diplotype.TPMT, diplotype.UGT1A1, prescriptions
+Hank Hill,1, *1/*11,, *3/*3,,*1/*1,,,*1/*1,atazanavir codeine abacavir
+Hank Green,2,*1/*7,*3/*3,*3/*4,,,,,,escitalopram clopidogrel
+Hank Aaron,3,*1/*1,*1/*1,*3/*3,,*1/*57:01,,,,clopidogrel abacavir
+Hank Williams,4,*1/*4B,*2/*4,*10x2/*34,*1/*6,*1/*1,*1/*5,*2/*3A,*36/*80,fluvoxamine paroxetine clopidogrel ondansetron thioguanine voriconazole atazanavir citalopram escitalopram tropisetron mercaptopurine simvastatin codeine carbamazepine oxcarbazepine phenytoin azathioprine tacrolimus amitriptyline sertraline abacavir allopurinol
+Hank Azaria,5,*1/*1,*1/*1,*1/*1,*1/*1,*1/*1,*1/*1,*1/*1,*1/*1,fluvoxamine paroxetine clopidogrel ondansetron thioguanine voriconazole atazanavir citalopram escitalopram tropisetron mercaptopurine simvastatin codeine carbamazepine oxcarbazepine phenytoin azathioprine tacrolimus amitriptyline sertraline abacavir allopurinol
