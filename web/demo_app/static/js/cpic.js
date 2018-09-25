@@ -104,6 +104,7 @@ var demo = new Vue({
      self.recommendationkolist = druglist.data.result
      self.genophenokolist = genophenolist.data.result
    })).catch(function (error) {
+     self.appendLog('app', 'K-GRID Service Unavailable. Please use setting to change the activator url.')
      console.log(error)
    })
     })).catch(function (error) {
