@@ -41,22 +41,29 @@ CPIC Knowledge Objects into the system.
 ### Starting KGrid CPIC Kit
 Starting the KGrid CPIC Kit will start up an instance of the KGrid Activator, KGrid Library and CPIC Kit Web. The CPIC Kit Web server will serve the CPIC web demo application.
 
-From the command line of the kit directory start the kit.  This script will automaticaly open a browser window pointing to the  CPIC Kit Web home page.
+From the command line of the kit directory start the kit.
 ```
 npm start
 ```
-Once running the following components will be running [Activator](http://localhost:8082), [Library](http://localhost:8081), [CPIC Kit Site](http://localhost:8080)
+Once started you will have an Activator running at http://localhost:8082, a Library running at http://localhost:8081, and a demo webapp running at http://localhost:8080.
 
 
 #### Web Demo
 This a patient's clinical lab report of genotype and diplotype could use the CPIC objects to determine a patient’s predicted metabolizer phenotype and therapeutic recommendations for a set of drugs.
-
-[CPIC Kit Site](http://localhost:8080)
+After starting the CPIC kit the demo will be running at http://localhost:8080 or there is a version running at [kgrid.org](http://demo.kgrid.org/cpic-kit/web/demo_app/)
 
 #### Command Line Demo
 Takes in multiple patient clinical lab reports (genotype and diplotype) see [panel.csv](https://github.com/kgrid-demos/cpic-kit/blob/master/cli-client/panel.csv) and using the CPIC objects to determines a patient’s predicted metabolizer phenotype and therapeutic recommendations for a set of drugs.
 
 ```npm run cpic cli-client/panel.csv``` 
+
+To have the script output to a file use the following command:
+
+```npm run cpic cli-client/panel.csv > output.json```
+
+For more help with the command line client run
+
+```npm run cpic --help```
 
 ### Stopping KGrid CPIC Kit
 Stopping the running KGrid activator, library and demo web site can be accomplished with npm stop command
