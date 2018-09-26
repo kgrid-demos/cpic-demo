@@ -8,6 +8,7 @@ cp -r package.json dist/cpic-kit
 cp -f package-lock.json dist/cpic-kit
 cp -r  scripts dist/cpic-kit
 cp -r  scriptswin dist/cpic-kit
+cp -r  tests dist/cpic-kit
 cp -r  web dist/cpic-kit
 cp -r  cli-client dist/cpic-kit
 
