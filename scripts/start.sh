@@ -13,6 +13,6 @@ while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:8081)" != "200" ]
 while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:8082)" != "200" ]]; do sleep 5; done
 
 echo "Starting CPIC Kit demo web site on http://localhost:8080"
-cd web &&  ../node_modules/http-server/bin/http-server -o  &>/dev/null &
+cd web &&  ../node_modules/http-server/bin/http-server  &>/dev/null &
 
 echo "KGrid CPIC Kit is running"
