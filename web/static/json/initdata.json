@@ -1,22 +1,17 @@
-{ "initrequest":{"diplotype": {
-    "CFTR": "",
-    "CYP2C19":"",
-    "CYP2C9" :"",
-    "CYP2D6": "",
-    "CYP3A5": "",
-    "CYP4F2": "",
-    "DPYD": "",
-    "G6PD": "",
-    "HLA-A" : "",
-    "HLA-B" : "",
-    "IFNL3" : "",
-    "SLCO1B1" : "",
-    "TPMT" : "",
-    "UGT1A1": "",
-    "VKORC1" : ""
+{ "initrequest": {
+    "diplotype": {
+        "CYP2C19":"",
+        "CYP2C9" :"",
+        "CYP2D6": "",
+        "CYP3A5": "",
+        "HLA-A" : "",
+        "HLA-B" : "",
+        "SLCO1B1" : "",
+        "TPMT" : "",
+        "UGT1A1": ""
+      },
+    "prescriptions": {}
   },
-  "prescriptions": {}
-},
 "patientsamples":[
   {
     "patient": {
@@ -24,21 +19,15 @@
       "id": "001"
     },
     "diplotype": {
-      "CFTR": "",
       "CYP2C19":"*1/*1",
-      "CYP2C9" :"",
+      "CYP2C9" :"*1/*3",
       "CYP2D6": "*1/*10",
-      "CYP3A5": "",
-      "CYP4F2": "",
-      "DPYD": "",
-      "G6PD": "",
+      "CYP3A5": "*3/*6",
       "HLA-A" : "",
-      "HLA-B" : "*57:01/*1",
-      "IFNL3" : "",
-      "SLCO1B1" : "",
+      "HLA-B" : "*1/*15:02",
+      "SLCO1B1" : "*1A/*1A",
       "TPMT" : "*1/*1",
-      "UGT1A1": "*1/*6",
-      "VKORC1" : ""
+      "UGT1A1": "*1/*6"
     },
     "prescriptions": {
       "atazanavir": true,
@@ -51,21 +40,15 @@
     "id": "002"
     },
     "diplotype": {
-      "CFTR": "",
       "CYP2C19":"*17/*17",
-      "CYP2C9" :"",
+      "CYP2C9" :"*1/*3",
       "CYP2D6": "*3/*3",
       "CYP3A5": "*1/*3",
-      "CYP4F2": "",
-      "DPYD": "",
-      "G6PD": "",
       "HLA-A" : "",
       "HLA-B" : "*58:01/*15:02",
-      "IFNL3" : "",
       "SLCO1B1" : "",
       "TPMT" : "*1/*3",
-      "UGT1A1": "*1/*1",
-      "VKORC1" : ""
+      "UGT1A1": "*1/*1"
     },
     "prescriptions": {
       "escitalopram": true,
@@ -78,21 +61,15 @@
       "id": "003"
     },
     "diplotype": {
-      "CFTR": "",
       "CYP2C19":"*1/*48",
       "CYP2C9" :"*1/*1",
       "CYP2D6": "*1x2/*9",
       "CYP3A5": "*3/*3",
-      "CYP4F2": "",
-      "DPYD": "",
-      "G6PD": "",
       "HLA-A" : "*31:01/*1",
       "HLA-B" : "*1/*1",
-      "IFNL3" : "",
-      "SLCO1B1" : "",
+      "SLCO1B1" : "*5/*5",
       "TPMT" : "",
-      "UGT1A1": "*27/*80",
-      "VKORC1" : ""
+      "UGT1A1": "*27/*80"
     },
     "prescriptions": {
       "clopidogrel": true
@@ -104,21 +81,15 @@
       "id": "004"
     },
     "diplotype": {
-      "CFTR": "",
       "CYP2C19":"*4A/*10",
-      "CYP2C9" :"",
+      "CYP2C9" :"*1/*3",
       "CYP2D6": "*7/*59",
-      "CYP3A5": "",
-      "CYP4F2": "",
-      "DPYD": "",
-      "G6PD": "",
+      "CYP3A5": "*1/*1",
       "HLA-A" : "",
       "HLA-B" : "",
-      "IFNL3" : "",
-      "SLCO1B1" : "",
+      "SLCO1B1" : "*1A/*17",
       "TPMT" : "",
-      "UGT1A1": "*6/*36",
-      "VKORC1" : ""
+      "UGT1A1": "*6/*36"
     },
     "prescriptions": {
       "clopidogrel": true
@@ -130,21 +101,15 @@
       "id": "005"
     },
     "diplotype": {
-      "CFTR": "",
       "CYP2C19":"*14/*34",
-      "CYP2C9" :"",
+      "CYP2C9" :"*2/*3",
       "CYP2D6": "*31/*92",
-      "CYP3A5": "",
-      "CYP4F2": "",
-      "DPYD": "",
-      "G6PD": "",
+      "CYP3A5": "*1/*1",
       "HLA-A" : "",
       "HLA-B" : "*15:02/*15:02",
-      "IFNL3" : "",
       "SLCO1B1" : "",
       "TPMT" : "",
-      "UGT1A1": "*36/*60",
-      "VKORC1" : ""
+      "UGT1A1": "*36/*60"
     },
     "prescriptions": {
       "clopidogrel": true

@@ -51,14 +51,14 @@
           <div class="ht-g input_div">
             <div class=" box-header color-scheme">
               <div class="row">
-                <div class="col-md-5 col-sm-7 noselect" style="line-height:3em;"><span> Autofill Sample</span></div>
-                <div class="col-md-7 col-sm-7">
+                <div class="col-md-12 col-sm-12 noselect" style="line-height:3em;font-weight:500;"><span>Gene Phenotype Panel</span></div>
+                <div class="col-md-12 col-sm-12">
                   <div class="radio-group">
-                    <input type="radio" id="option-zero" value="0" name="patient" v-model='autofillSelection'> <label class="noselect" for="option-zero">0</label>
-                    <input type="radio" id="option-one" value="1" name="patient" v-model='autofillSelection'> <label class="noselect" for="option-one">1</label>
-                    <input type="radio" id="option-two" value="2"  name="patient" v-model='autofillSelection'> <label class="noselect" for="option-two">2</label>
-                    <input type="radio" id="option-three" value="3" name="patient" v-model='autofillSelection'> <label class="noselect" for="option-three">3</label>
-                    <input type="radio" id="option-four" value="4" name="patient" v-model='autofillSelection'> <label class="noselect" for="option-four">4</label>
+                    <input type="radio" id="option-zero" value="0" name="patient" v-model='autofillSelection' :disabled='!activatorReady'> <label class="noselect" for="option-zero">Patient 1</label>
+                    <input type="radio" id="option-one" value="1" name="patient" v-model='autofillSelection' :disabled='!activatorReady'> <label class="noselect" for="option-one">Patient 2</label>
+                    <input type="radio" id="option-two" value="2"  name="patient" v-model='autofillSelection' :disabled='!activatorReady'> <label class="noselect" for="option-two">Patient 3</label>
+                    <input type="radio" id="option-three" value="3" name="patient" v-model='autofillSelection' :disabled='!activatorReady'> <label class="noselect" for="option-three">Patient 4</label>
+                    <input type="radio" id="option-four" value="4" name="patient" v-model='autofillSelection' :disabled='!activatorReady'> <label class="noselect" for="option-four">Patient 5</label>
                   </div>
                 </div>
               </div>
@@ -86,7 +86,7 @@
                         <div class='col-md-1 col-sm-1 col-xs-1'></div>
                   </div>
                   <div class="tab-pane active">
-                        <ul id="reclist" style="list-style:none; width: 100%;overflow-y:auto;text-align:left;font-size: 18px;padding:0;max-height:780px;margin:0;">
+                        <ul id="reclist" style="list-style:none; width: 100%;overflow-y:auto;text-align:left;font-size: 18px;padding:0;margin:0;">
                             <li v-for='(rec, index) in recommendationlist' ><recomtile :recmodel='rec' :reckey='rec.drug' :recindex='index'></recomtile></li>
                         </ul>
                   </div>

@@ -42,71 +42,78 @@ var demo = new Vue({
   el: '#app',
   data: function () {
   	return {
-    initdata: {},
-    activatorurl: {'local': 'http://localhost:8080', 'default': 'https://activator.kgrid.org', 'custom': ''},
-    selectedactivator: 'local',
-    activatorselection: 'local',
-    options: [
-        { text: 'Default', url: 'https://activator.kgrid.org', value: 'default' },
-				{ text: 'Local', url: 'http://localhost:8080', value: 'local' },
-        { text: 'Custom', url: '', value: 'custom'}
-    ],
-    settingShow: false,
-    autofillSelection: '',
-    eventlog: [],
-    phenoready: false,
-    delay: 1500,
-    genophenokolist: {},
-    recommendationkolist: {},
-    genopheno_endpoint: '',
-    recommendation_endpoint: '',
-    listrequest: {},
-    genophenolookupko: {},
-    druglookupko: {},
-    logtext: {'request': 'K-GRID Service Request - Sending request to Knowledge Object ark:', 'response': ''},
-    patientsamples: [],
-    genophenopromises: [],
-    drugpromises: [],
-    phenotypePanel: {},
-    diplotypePanel: {},
-    currentstatus: '',
-    recommendationlist: []
+      currenturl:'',
+      initdata: {},
+      activatorurl: {'local': 'http://localhost:8080', 'default': 'https://activator.kgrid.org', 'custom': ''},
+      selectedactivator: 'default',
+      activatorselection: 'default',
+      options: [
+          { text: 'Default', url: 'https://activator.kgrid.org', value: 'default' },
+    			{ text: 'Local', url: 'http://localhost:8080', value: 'local' },
+          { text: 'Custom', url: '', value: 'custom'}
+      ],
+      settingShow: false,
+      autofillSelection: '',
+      eventlog: [],
+      activatorReady: false,
+      phenoready: false,
+      delay: 1500,
+      genophenokolist: {},
+      recommendationkolist: {},
+      genopheno_endpoint: '',
+      recommendation_endpoint: '',
+      listrequest: {},
+      genophenolookupko: {},
+      druglookupko: {},
+      logtext: {'request': 'K-GRID Service Request - Sending request to Knowledge Object ark:', 'response': ''},
+      patientsamples: [],
+      genophenopromises: [],
+      drugpromises: [],
+      phenotypePanel: {},
+      diplotypePanel: {},
+      currentstatus: '',
+      recommendationlist: []
 	  }
   },
   created: function () {
     var self = this
-    var dict = ['TBD', 'Likely Poor', 'Poor', 'Likely Intermediate', 'Intermediate', 'Normal', 'Rapid', 'Ultrarapid']
     axios.all([
       axios.get('./static/json/initdata.json'),
       axios.get('./static/json/config.json')
-    ]).then(axios.spread(function (initdata, config) {
+    ]).then(axios.spread(function (initresp, config) {
 			  self.appendLog('app', 'Application Event - Loading Configuration...')
 		    self.appendLog('app', 'Application Event - Loading Initial Data...')
-      self.initdata = initdata.data
-      self.listrequest = initdata.data.initrequest
-      self.patientsamples = initdata.data.patientsamples
-      self.phenotypePanel = JSON.parse(JSON.stringify(initdata.data.initrequest.diplotype))
-      self.diplotypePanel = JSON.parse(JSON.stringify(initdata.data.initrequest.diplotype))
-      self.genophenolookupko = config.data.genophenolookupko
-      self.druglookupko = config.data.druglookupko
-      self.genopheno_endpoint = config.data.genopheno_endpoint
-      self.recommendation_endpoint = config.data.recommendation_endpoint
-      self.activatorurl.local=config.data.activator_url
-      self.options[1].url=config.data.activator_url
-      axios.all([
-        self.getdruglist,
-        self.getg2pkolist
+        self.initdata = initresp.data
+        self.listrequest = initresp.data.initrequest
+        self.patientsamples = initresp.data.patientsamples
+        self.phenotypePanel = JSON.parse(JSON.stringify(initresp.data.initrequest.diplotype))
+        self.diplotypePanel = JSON.parse(JSON.stringify(initresp.data.initrequest.diplotype))
+        self.genophenolookupko = config.data.genophenolookupko
+        self.druglookupko = config.data.druglookupko
+        self.genopheno_endpoint = config.data.genopheno_endpoint
+        self.recommendation_endpoint = config.data.recommendation_endpoint
+        self.activatorurl.local=config.data.activator_url
+        self.options[1].url=config.data.activator_url
+        self.currenturl=window.location.href
+        if(self.currenturl.includes('localhost')){
+          self.selectedactivator='local'
+        }
+        self.appendLog('app', 'Application Event - The Activator is set to '+self.baseUrl)
+        axios.all([
+          self.getdruglist,
+          self.getg2pkolist
 		 	  ]).then(axios.spread(function (druglist, genophenolist) {
-     self.appendLog('app', self.logtext.request + self.genophenolookupko.id)
-     self.appendLog('app', 'K-GRID Service Response - Geno to Pheno KO list returned from Knowledge Object ark:' + self.genophenolookupko.id)
-				  	self.appendLog('app', self.logtext.request + self.druglookupko.id)
-     self.appendLog('app', 'K-GRID Service Response - Gene drug table returned from Knowledge Object ark:' + self.druglookupko.id)
-     self.recommendationkolist = druglist.data.result
-     self.genophenokolist = genophenolist.data.result
-   })).catch(function (error) {
-     self.appendLog('app', 'K-GRID Service Unavailable. Please use setting to change the activator url.')
-     console.log(error)
-   })
+           self.appendLog('app', self.logtext.request + self.genophenolookupko.id)
+           self.appendLog('app', 'K-GRID Service Response - Geno to Pheno KO list returned from Knowledge Object ark:' + self.genophenolookupko.id)
+      		 self.appendLog('app', self.logtext.request + self.druglookupko.id)
+           self.appendLog('app', 'K-GRID Service Response - Gene drug table returned from Knowledge Object ark:' + self.druglookupko.id)
+           self.recommendationkolist = druglist.data.result
+           self.genophenokolist = genophenolist.data.result
+           self.activatorReady=true
+         })).catch(function (error) {
+           self.appendLog('app', 'K-GRID Service Unavailable. Please use setting to change the activator url.')
+           console.log(error)
+         })
     })).catch(function (error) {
       console.log(error)
     })
@@ -144,16 +151,23 @@ var demo = new Vue({
   watch: {
     selectedactivator:function(){
       var self = this
+      self.resetapp()
+      Object.keys(self.diplotypePanel).forEach(function(key) {
+        self.diplotypePanel[key] = ''
+      })
+      self.activatorReady=false
       axios.all([
         self.getdruglist,
         self.getg2pkolist
         ]).then(axios.spread(function (druglist, genophenolist) {
-     self.appendLog('app', self.logtext.request + self.genophenolookupko.id)
-     self.appendLog('app', 'K-GRID Service Response - Geno to Pheno KO list returned from Knowledge Object ark:' + self.genophenolookupko.id)
-            self.appendLog('app', self.logtext.request + self.druglookupko.id)
-     self.appendLog('app', 'K-GRID Service Response - Gene drug table returned from Knowledge Object ark:' + self.druglookupko.id)
-     self.recommendationkolist = druglist.data.result
-     self.genophenokolist = genophenolist.data.result
+           self.appendLog('app', self.logtext.request + self.genophenolookupko.id)
+           self.appendLog('app', 'K-GRID Service Response - Geno to Pheno KO list returned from Knowledge Object ark:' + self.genophenolookupko.id)
+           self.appendLog('app', self.logtext.request + self.druglookupko.id)
+           self.appendLog('app', 'K-GRID Service Response - Gene drug table returned from Knowledge Object ark:' + self.druglookupko.id)
+           self.recommendationkolist = druglist.data.result
+           self.genophenokolist = genophenolist.data.result
+
+          self.activatorReady=true
    })).catch(function (error) {
      console.log(error)
    })
