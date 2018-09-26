@@ -25,7 +25,7 @@ With [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-down
 and [Node.js](http://nodejs.org/) installed we can download the CPIC Kit.
 
 * Download the latest CPIC Kit *cpic-kit.zip* from GitHub, 
-[CPIC Kit](https://github.com/kgrid-demos/cpic-kit/releases/latest). 
+[GitHub CPIC Kit Release](https://github.com/kgrid-demos/cpic-kit/releases/latest). 
 * Unzip cpic-kit.zip
 * Via a terminal interface navigate to the *cpic_kit* directory
 
