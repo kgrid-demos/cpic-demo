@@ -13,6 +13,7 @@
     "stop": "scripty",
     "test:postman": "newman run tests/cpic_kit.postman_collection.json -e tests/kit_test.postman_environment.json --reporters  cli,junit --reporter-junit-export test-results",
     "test:cli": "jest",
+    "test:web": "testcafe chrome tests/webdemo.test.js",
     "test": "npm run test:postman && npm run test:cli",
     "package": "scripty",
     "cpic": "node cli-client/cli-client.js"
@@ -35,6 +36,7 @@
     "request": "^2.88.0",
     "scripty": "^1.7.2",
     "shelljs": "^0.8.2",
+    "testcafe": "^0.22.0",
     "unzip": "^0.1.11"
   },
   "scripty": {

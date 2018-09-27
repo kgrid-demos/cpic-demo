@@ -20,9 +20,13 @@ Vue.component('recomtile', {
           phenovalue = phenovalue+ " "
         }
         if(this.recmodel.genes[key].phenotype){
-          phenovalue=phenovalue+key+" "+this.recmodel.genes[key].phenotype
+          if(this.recmodel.genes[key].phenotype!=''){
+            phenovalue=phenovalue+key+" "+this.recmodel.genes[key].phenotype
+          }
         } else {
-          phenovalue=phenovalue+key+" "+this.recmodel.genes[key].diplotype
+          if(this.recmodel.genes[key].diplotype!=''){
+            phenovalue=phenovalue+key+" "+this.recmodel.genes[key].diplotype
+          }
         }
       }
       obj.genes=phenovalue
