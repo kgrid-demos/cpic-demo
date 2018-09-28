@@ -3,7 +3,7 @@ import { Selector } from 'testcafe';
 
 
 fixture `CPIC KIT`
-    .page `http://localhost:8080`;
+    .page `http://127.0.0.1:8080`;
 
 // const page = new Page();
 const settingModal       = Selector('#setting')
