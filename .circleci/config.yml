@@ -33,7 +33,6 @@ jobs:
         name: Run smoke tests on the CPIC Kit
         command: mkdir test-results && npm test
 
-    - run: curl http://127.0.0.1:8080 -o /dev/null
     - run: curl http://localhost:8080 -o /dev/null
 
     - run:
