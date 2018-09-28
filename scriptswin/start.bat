@@ -6,6 +6,6 @@ start "KGrid Activator" java -jar activator/kgrid-activator.jar --server.port=80
 cd web
 start node ../node_modules/http-server/bin/http-server
 
-echo "Starting CPIC Kit demo web site on http://localhost:8080"
+echo "Starting CPIC Kit demo web site on http://localhost:8083"
 echo "Starting KGrid Activator on http://localhost:8082"
 echo "Starting KGrid Library on http://localhost:8081"

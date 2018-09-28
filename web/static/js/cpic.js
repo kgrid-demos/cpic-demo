@@ -48,12 +48,12 @@ var demo = new Vue({
   	return {
       currenturl:'',
       initdata: {},
-      activatorurl: {'local': 'http://localhost:8080', 'default': 'https://activator.kgrid.org', 'custom': ''},
+      activatorurl: {'local': 'http://localhost:8082', 'default': 'https://activator.kgrid.org', 'custom': ''},
       selectedactivator: 'default',
       activatorselection: 'default',
       options: [
           { text: 'Default', url: 'https://activator.kgrid.org', value: 'default' },
-    			{ text: 'Local', url: 'http://localhost:8080', value: 'local' },
+    			{ text: 'Local', url: 'http://localhost:8082', value: 'local' },
           { text: 'Custom', url: '', value: 'custom'}
       ],
       settingShow: false,

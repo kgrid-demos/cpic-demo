@@ -45,12 +45,12 @@ From the command line of the kit directory start the kit.
 ```
 npm start
 ```
-Once started you will have an Activator running at http://localhost:8082, a Library running at http://localhost:8081, and a demo webapp running at http://localhost:8080.
+Once started you will have an Activator running at http://localhost:8082, a Library running at http://localhost:8081, and a demo webapp running at http://localhost:8083.
 
 
 #### Web Demo
 This a patient's clinical lab report of genotype and diplotype could use the CPIC objects to determine a patient’s predicted metabolizer phenotype and therapeutic recommendations for a set of drugs.
-After starting the CPIC kit the demo will be running at http://localhost:8080 or there is a version running at [kgrid.org](http://demo.kgrid.org/cpic-kit/web/demo_app/)
+After starting the CPIC kit the demo will be running at http://localhost:8083 or there is a version running at [kgrid.org](http://demo.kgrid.org/cpic-kit/web/demo_app/)
 
 #### Command Line Demo
 Takes in multiple patient clinical lab reports (genotype and diplotype) see [panel.csv](https://github.com/kgrid-demos/cpic-kit/blob/master/cli-client/panel.csv) and using the CPIC objects to determines a patient’s predicted metabolizer phenotype and therapeutic recommendations for a set of drugs.
