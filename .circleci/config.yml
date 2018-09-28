@@ -34,6 +34,10 @@ jobs:
         command: mkdir test-results && npm test
 
     - run:
+        name: Run smoke tests on the CPIC kit Web Demo
+        command: npm run test:web
+
+    - run:
         name: Create CPIC Kit zip ready for deployment
         command: npm run package
 

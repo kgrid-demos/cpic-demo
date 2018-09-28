@@ -13,7 +13,7 @@
     "stop": "scripty",
     "test:postman": "newman run tests/cpic_kit.postman_collection.json -e tests/kit_test.postman_environment.json --reporters  cli,junit --reporter-junit-export test-results",
     "test:cli": "jest",
-    "test:web": "testcafe chrome web/test/webdemotest.js",
+    "test:web": "testcafe chrome:headless web/test/webdemotest.js -r xunit: test-results/testcafereport.xml",
     "test": "npm run test:postman && npm run test:cli",
     "package": "scripty",
     "cpic": "node cli-client/cli-client.js"
@@ -38,6 +38,10 @@
     "shelljs": "^0.8.2",
     "testcafe": "^0.22.0",
     "unzip": "^0.1.11"
+  },
+  "devDependencies": {
+      "testcafe": "^0.22.0",
+      "testcafe-reporter-xunit": "^2.1.0"
   },
   "scripty": {
     "path": "scripts",
