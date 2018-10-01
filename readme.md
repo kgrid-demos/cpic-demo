@@ -2,7 +2,7 @@
 [![CircleCI](https://circleci.com/gh/kgrid-demos/cpic-kit.svg?style=svg)](https://circleci.com/gh/kgrid-demos/cpic-kit)
 
 
-KGrid CPIC Kit packages [Activator](http://kgrid.org/kgrid-activator/), [Library](http://kgrid.org/kgrid-library) and CPIC Demo Site.  The kit is designed as a personnel CPIC Knowledge Grid used to explore the capablities of KGrid and [CPIC Knowlege Objects](https://kgrid-objects.github.io/cpic-objects/).
+KGrid CPIC Kit packages [Activator](http://kgrid.org/kgrid-activator/), [Library](http://kgrid.org/kgrid-library) and CPIC Demo Site.  The kit is designed as a personnel CPIC Knowledge Grid used to explore the capablities of KGrid and [CPIC Knowlege Objects](https://kgrid-objects.github.io/cpic-collection/).
 
 ## Table of Contents
    * [Installation](#installation)
@@ -95,8 +95,8 @@ The CPIC Kit utilizes [CircleCI](https://circleci.com/gh/kgrid-demos/cpic-kit) t
 
 #### Packaging the Kit for distribution 
 Publishing a version of the kit requires you to create a new CPIC Kit zip file and creating a new
-[CPIC Kit GitHub release](https://github.com/kgrid-objects/cpic-objects/releases) in the 
-[CPIC Kit repository](https://github.com/kgrid-objects/cpic-objects).  The _package_ npm command will zip
+[CPIC Kit GitHub release](https://github.com/kgrid-objects/cpic-collection/releases) in the 
+[CPIC Kit repository](https://github.com/kgrid-objects/cpic-collection).  The _package_ npm command will zip
 up the CPIC Kit required files into a cpic-kit.zip in the _dist_ directory.
 
 ```npm run package```

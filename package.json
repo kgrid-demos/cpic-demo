@@ -58,7 +58,7 @@
       "destination": "activator"
     },
     "cpic-kos": {
-      "url": "https://api.github.com/repos/kgrid-objects/cpic-objects",
+      "url": "https://api.github.com/repos/kgrid-objects/cpic-collection",
       "destination": "dist"
     }
   }
