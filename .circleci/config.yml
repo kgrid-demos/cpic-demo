@@ -29,6 +29,8 @@ jobs:
         name: Start the CPIC Kit (activator,library, demo site)
         command: npm start && npm run test:web
 
+    #- run: curl http://localhost:8080 -o /dev/null
+
     - run:
         name: Run smoke tests on the CPIC Kit
         command: mkdir test-results && npm test

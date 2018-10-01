@@ -8,9 +8,9 @@ fixture `CPIC KIT`
 // const page = new Page();
 const settingModal       = Selector('#setting')
 const settingIcon        = Selector('#settingicon')
-const patientOne        = Selector('input[type=radio][value="0"]');
+const patientOne        = Selector('input[type=radio][value="0"]+label');
 const diplotype          = Selector('#CYP2D6');
-const defaultRadioButton = Selector('input[type=radio][value="default"]')
+
 const recList = Selector('#reclist')
 
 test('Gene Panel', async t => {
@@ -22,8 +22,18 @@ test('Gene Panel', async t => {
 test('Setting', async t => {
     await t
       .click(settingIcon)
-      .wait(2000)
-      .expect(settingModal.visible).eql(true);
+      .wait(1000);
+
+    const defaultRadioButton = Selector('input[type=radio][value="default"]+span')
+    const settingModal       = Selector('#setting')
+    const okbutton           = Selector('button.btn-primary')
+
+    await t
+      .click(defaultRadioButton)
+      .wait(1000)
+      .click(okbutton)
+      .expect(patientOne.getAttribute('opacity')).eql(1);
+      // .expect(settingModal.visible).eql(true);
 
     // if(await defaultRadioButton.exisits){
     //   await t
