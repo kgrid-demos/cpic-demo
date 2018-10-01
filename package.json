@@ -1,6 +1,6 @@
 {
   "name": "cpic_kit",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "CPIC KGrid Kit",
   "main": " ",
   "bin": {
@@ -40,8 +40,8 @@
     "unzip": "^0.1.11"
   },
   "devDependencies": {
-      "testcafe": "^0.22.0",
-      "testcafe-reporter-xunit": "^2.1.0"
+    "testcafe": "^0.22.0",
+    "testcafe-reporter-xunit": "^2.1.0"
   },
   "scripty": {
     "path": "scripts",
