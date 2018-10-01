@@ -14,7 +14,7 @@
     "test:postman": "newman run tests/cpic_kit.postman_collection.json -e tests/kit_test.postman_environment.json --reporters  cli,junit --reporter-junit-export test-results",
     "test:cli": "jest",
     "test:web": "testcafe chrome:headless web/test/webdemotest.js",
-    "test": "npm run test:postman && npm run test:cli",
+    "test": "npm run test:postman && npm run test:cli && npm run test:web ",
     "package": "scripty",
     "cpic": "node cli-client/cli-client.js"
   },
