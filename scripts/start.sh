@@ -15,6 +15,6 @@ nohup java -jar activator/kgrid-activator.jar --server.port=8082 --kgrid.shelf.c
 echo "Waiting....."
 while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:8081)" != "200" ]]; do sleep 5; done
 while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:8082)" != "200" ]]; do sleep 5; done
-while [[ "$(curl -s -o  /home/circleci/repo/dist/curl.log  -w ''%{http_code}'' localhost:8083)" != "200" ]]; do sleep 5; done
+while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:8083)" != "200" ]]; do sleep 5; done
 
 echo "KGrid CPIC Kit is running"
