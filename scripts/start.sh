@@ -3,7 +3,7 @@
 echo "Starting KGrid CPIC Kit"
 
 echo "Starting CPIC Kit demo web site on http://localhost:8083"
-cd web &&  nohup ../node_modules/http-server/bin/http-server -p 8083 -a localhost &
+cd web &&  nohup ../node_modules/http-server/bin/http-server -p 8083 -a localhost  &>/dev/null &
 
 echo "Starting library on http://localhost:8081"
 nohup java -jar library/kgrid-library.jar --server.port=8081 --kgrid.shelf.cdostore.url=filesystem:file://library/shelf &>/dev/null &
