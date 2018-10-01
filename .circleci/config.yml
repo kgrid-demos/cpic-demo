@@ -26,14 +26,9 @@ jobs:
          command: npm install
 
     - run:
-        name: Start the CPIC Kit (activator,library, demo site)
-        command: npm start && npm run test:web
+        name: Trdy CPIC Kit (
+        command: npm start && mkdir test-results && npm test
 
-    #- run: curl http://localhost:8080 -o /dev/null
-
-    - run:
-        name: Run smoke tests on the CPIC Kit
-        command: mkdir test-results && npm test
 
     - run:
         name: Create CPIC Kit zip ready for deployment
