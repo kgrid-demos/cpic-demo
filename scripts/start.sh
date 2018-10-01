@@ -15,4 +15,6 @@ while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:8082)" != "200" ]
 echo "Starting CPIC Kit demo web site on http://localhost:8083"
 cd web &&  nohup ../node_modules/http-server/bin/http-server -p 8083 -a localhost &
 
+while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:8083)" != "200" ]]; do sleep 5; done
+
 echo "KGrid CPIC Kit is running"

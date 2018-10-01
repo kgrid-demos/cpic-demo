@@ -29,8 +29,6 @@ jobs:
         name: Start the CPIC Kit (activator,library, demo site)
         command: npm start
 
-    - run: lsof -i -P -n | grep LISTEN
-
     - run:
         name: Run smoke tests on the CPIC kit Web Demo
         command: npm run test:web
