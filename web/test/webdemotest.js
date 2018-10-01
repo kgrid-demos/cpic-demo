@@ -32,20 +32,10 @@ test('Setting', async t => {
       .click(defaultRadioButton)
       .wait(1000)
       .click(okbutton)
-      .expect(patientOne.getAttribute('opacity')).eql(1);
-      // .expect(settingModal.visible).eql(true);
+      .wait(1000)
+      .click(patientOne)
+      .wait(3000)
+      .expect(recList.hasChildElements).eql(true);
 
-    // if(await defaultRadioButton.exisits){
-    //   await t
-    //     .click(defaultRadioButton)
-    //     .expect(patientOne.getAttribute('disabled')).eql(true);
-    // }
-    //
-    // if(await (patientOne.getAttribute('disabled')==true)){
-    //     await t
-    //       .click(patientOne)
-    //       .wait(2000)
-    //       .expect(recList.hasChildElements).eql(true);
-    // }
 
 });
