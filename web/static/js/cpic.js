@@ -8,7 +8,7 @@ Vue.component('recomtile', {
   ],
   data: function(){
     return {
-      reclabel: {genes:"Genes",classification:"Classification of recommendations", content:"Dosing recommendations",implication:"Implications for phenotypic measures"}
+      reclabel: {genes:"Based on",classification:"Classification of recommendations", content:"Dosing recommendations",implication:"Implications for phenotypic measures"}
     }
   },
   computed: {
