@@ -36,7 +36,6 @@
     "request": "^2.88.0",
     "scripty": "^1.7.2",
     "shelljs": "^0.8.2",
-    "testcafe": "^0.22.0",
     "unzip": "^0.1.11"
   },
   "devDependencies": {
@@ -51,15 +50,18 @@
   "githubAssets": {
     "library": {
       "url": "https://api.github.com/repos/kgrid/kgrid-library",
-      "destination": "library"
+      "destination": "library",
+      "tag_name": ""
     },
     "activator": {
       "url": "https://api.github.com/repos/kgrid/kgrid-activator",
-      "destination": "activator"
+      "destination": "activator",
+      "tag_name": ""
     },
     "cpic-kos": {
       "url": "https://api.github.com/repos/kgrid-objects/cpic-collection",
-      "destination": "dist"
+      "destination": "dist",
+      "tag_name": ""
     }
   }
 }

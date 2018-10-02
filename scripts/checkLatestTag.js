@@ -8,7 +8,7 @@ const filter = '$.assets[*].browser_download_url'
 
 module.exports = {
 
-  downloadAssets: function(asset){
+  checkLatestTag: function(asset){
 
     var options = {
       url: asset.url+"/releases/latest",
@@ -31,18 +31,7 @@ module.exports = {
           artifact.name= asset.name
           artifact.filename=filename
           artifact.tag_name=tag_name
-          fileExists(asset.destination + "/" + filename).then(exists => {
-            if (exists) {
-              console.log("Already have " + filename);
-              resolve(artifact);
-            } else {
-              console.log("Downloading " + filename);
-              download(download_url, asset.destination, "{'extract':true}").then(() => {
-                console.log(filename + ' downloaded to '+asset.destination);
-                resolve(artifact);
-              });
-            }
-          });
+          resolve(artifact);
         }
       });
 
