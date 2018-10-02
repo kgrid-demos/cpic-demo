@@ -21,6 +21,13 @@ To setup the CPIC Kit you need:
 - [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Node.js](http://nodejs.org/)
 
+To verify the versions for installed software, you can run from the command line:
+
+```
+java -version                     # JAVA version
+npm version                       # node/npm version
+```
+
 With [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 and [Node.js](http://nodejs.org/) installed we can download the CPIC Kit.
 
@@ -54,9 +61,9 @@ Once started you will have:
 
 The local KGrid Library manages the CPIC collection of Knowledge Objects.
 
-For Mac, type ` open http://localhost:8081 `;
+For Mac, type `open http://localhost:8081`;
 
-For Windows, type ` start http://localhost:8081 `
+For Windows, type `start http://localhost:8081`
 
 #### Local KGrid Activator
 
@@ -64,9 +71,11 @@ The local KGrid Activator activates the CPIC collection of Knowledge Objects.
 
 To check the status of the activator,
 
-For Mac, type ` open http://localhost:8082/health `;
+For Mac,
+`open http://localhost:8082/health`
 
-For Windows, type ` start http://localhost:8082/health `
+For Windows,
+`start http://localhost:8082/health`
 
 
 #### Web Demo
@@ -79,9 +88,9 @@ Relevant drugs recommendations are then determined based on the available geneti
 
 To access the demo,
 
-For Mac, type ` open http://localhost:8083 `;
+For Mac, type `open http://localhost:8083`;
 
-For Windows, type ` start http://localhost:8083 `
+For Windows, type `start http://localhost:8083`
 
 To run the app,
 
