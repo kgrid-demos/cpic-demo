@@ -1,3 +1,5 @@
+@echo off
+node ./scripts/checkUpdate.js
 
 start "KGrid Library" java -jar library/kgrid-library.jar --server.port=8081 --kgrid.shelf.cdostore.url=filesystem:file://library/shelf
 
