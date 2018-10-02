@@ -33,9 +33,7 @@ test('Setting', async t => {
       .wait(1000)
       .click(okbutton)
       .wait(1000)
-      .click(patientOne)
-      .wait(3000)
-      .expect(recList.hasChildElements).eql(true);
+      .expect(settingModal.getStyleProperty('display')).eql('none');
 
 
 });
