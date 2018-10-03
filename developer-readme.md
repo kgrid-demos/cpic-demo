@@ -1,4 +1,4 @@
-## Development
+#CPIC Kit Development
 For CPIC Kit developers we have outlined the tools and techniques used to code, test and publish
 the CPIC Kit.  
 

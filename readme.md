@@ -9,11 +9,9 @@ KGrid CPIC Kit packages [Activator](http://kgrid.org/kgrid-activator/), [Library
    * [Usage](#usage)
      * [Start the Kit](#starting-kgrid-cpic-kit)
      * [Stop the Kit](#stopping-kgrid-cpic-kit)
+   * [Troubleshooting & Debugging](#troubleshooting--debugging)   
    * [Development](#development)
-     * [Testing the Kit](#testing)
-     * [Continuous Integration](#continuous-integration)
-     * [Packaging the Kit](#packaging-the-kit-for-distribution)
-
+   
 ## Installation
 
 To setup the CPIC Kit you need:
@@ -148,6 +146,13 @@ For Windows,
 ### Stopping KGrid CPIC Kit
 Stopping the running KGrid activator, library and demo web site can be accomplished with the npm stop command
 `npm stop`
+
+## Troubleshooting & Debugging
+### Application Logs 
+On windows the activator, library and web demo components will start their own terminal window. The application logs
+will stream to those terminal windows
+
+On macs the application logs will be stored in the _cpic-kit/activator/activator.log_ and _cpic-kit/library/libray.log_ files.
 
 ## Development
 For CPIC Kit developers we have outlined the tools and techniques used to code, test and publish
