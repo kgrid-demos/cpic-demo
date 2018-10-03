@@ -14,30 +14,32 @@ KGrid CPIC Kit packages [Activator](http://kgrid.org/kgrid-activator/), [Library
    * [Development](#development)
    
 ## Installation
-ß
-To setup the CPIC Kit you need:
 
+To setup the CPIC Kit you need:
+- Terminal Window 
 - [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 - [Node.js](http://nodejs.org/)
 
-To verify the versions for installed software, you can run from the command line:
+To verify the versions for installed software, type in the following in you terminal widow :
 
 ```
 java -version                     # JAVA version
 npm version                       # node/npm version
 ```
 
-With [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-and [Node.js](http://nodejs.org/) installed we can download the CPIC Kit.
-
-* Download the latest CPIC Kit *cpic-kit.zip* from GitHub,
+1.  Download the latest CPIC Kit *cpic-kit.zip* from GitHub,
 [GitHub CPIC Kit Release](https://github.com/kgrid-demos/cpic-kit/releases/latest).
-* Unzip cpic-kit.zip
-* Via a terminal interface navigate to the *cpic_kit* directory
+1. Unzip cpic-kit.zip to a directory of your choice.  For example to create a cpic-kit directory
+in my projects directory
+1. Via a terminal interface navigate to the *cpic_kit* directory and install the kit
 
-From the command line install the cpic kit
+For example:
+```bash 
+unzip cpic-kit.zip -d /Users/me/projects
+cd /Users/me/projects/cpic-kit
+npm install
+``` 
 
-`npm install`
 
 The install process is downloading the KGrid applications (library and activator) and loading the
 CPIC Knowledge Objects into the system.
@@ -165,15 +167,8 @@ will stream to those terminal windows
 On macs the application logs will be stored in the _cpic-kit/activator/activator.log_ and _cpic-kit/library/libray.log_ files.
 
 ## CPIC Kit Updates
-Starting the CPIC Kit will first check to see if there have been any updates to the Kit or it's 
-dependencies.
- 
-When running ```npm start``` a _KGrid Assets Status_ section will appear.  This will report if there is a update.  
-
-Changes in the library, activator and the CPIC knowledge objects can be update by running ```npm install```
-
-Changes to the CPIC Kit itself will require that you download a new cpic-kit.zip file. the example below
-depicts the _KGrid Assets Status_ when you need to download a new cpic-kit.zip.
+Each time the CPIC Kit is started it will first check to see if there have been any updates to the Kit or it's 
+dependencies. A _KGrid Assets Status_ section will appear in the terminal window.
 
 ```bash
 
@@ -190,7 +185,7 @@ activator:
 cpic-kos: 
   currentTag:  1.5.0
   latestTag:   1.5.0
-  description: Update the Condeine CYP2D6 recommender object 
+  description: Update the Condeine CYP2D6 recommendation object 
 cpic-kit: 
   currentTag:  1.1.0
   latestTag:   v1.1.0
@@ -200,7 +195,14 @@ cpic-kit:
 * A new version of CPIC-Kit is avaliable.
   You can download at https://github.com/kgrid-demos/cpic-kit/releases/download/v1.1.0/cpic-kit.zip
 
+Starting KGrid CPIC Kit
+...
 ```
+
+Changes in the library, activator and the CPIC knowledge objects can be update by running ```npm install```
+
+Changes to the CPIC Kit itself will require that you download a new cpic-kit.zip file. the example below
+depicts the _KGrid Assets Status_ when you need to download a new cpic-kit.zip.
 
 ## Development
 For CPIC Kit developers we have outlined the tools and techniques used to code, test and publish
