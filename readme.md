@@ -71,6 +71,8 @@ From the command line of the kit directory start the kit.
 
 `npm start`
 
+When complete you should see a similar message
+
 ```bash
 Starting KGrid CPIC Kit
 Starting CPIC Kit demo web site on http://localhost:8083
