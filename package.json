@@ -7,7 +7,6 @@
     "cpic": "cli-client/cli-client.js"
   },
   "scripts": {
-    "preinstall": "npm config set loglevel silent",
     "postinstall": "node scripts/clean.js && node scripts/kgridInstall.js",
     "clean": "node scripts/clean.js",
     "start": "scripty",
