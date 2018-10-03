@@ -1,17 +1,14 @@
+---
+home: false
+sidebarDepth: 2
+---
+
+# CPIC Kit Guide
 [![GitHub release](https://img.shields.io/github/release/kgrid-demos/cpic-kit.svg)](https://github.com/kgrid-demos/cpic-kit/releases/)
 [![CircleCI](https://circleci.com/gh/kgrid-demos/cpic-kit.svg?style=svg)](https://circleci.com/gh/kgrid-demos/cpic-kit)
 
-
 KGrid CPIC Kit packages [Activator](http://kgrid.org/kgrid-activator/), [Library](http://kgrid.org/kgrid-library) and CPIC Demo Site.  The kit is designed as a personal CPIC Knowledge Grid used to explore the capabilities of KGrid and [CPIC Knowledge Objects](https://kgrid-objects.github.io/cpic-collection/).
 
-## Table of Contents
-   * [Installation](#installation)
-   * [Usage](#usage)
-     * [Start the Kit](#starting-kgrid-cpic-kit)
-     * [Stop the Kit](#stopping-kgrid-cpic-kit)
-   * [Troubleshooting & Debugging](#troubleshooting--debugging)   
-   * [Kit Updates](#cpic-kit-updates)  
-   * [Development](#development)
 
 ## Installation
 
@@ -204,4 +201,4 @@ depicts the _KGrid Assets Status_ when you need to download a new cpic-kit.zip.
 
 ## Development
 For CPIC Kit developers we have outlined the tools and techniques used to code, test and publish
-the CPIC Kit.  Please see details in the [Developer Readme](developer-readme.md)
+the CPIC Kit.  Please see details in the [Developer Readme](develop/)

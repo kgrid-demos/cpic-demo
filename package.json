@@ -16,7 +16,9 @@
     "test:web": "testcafe chrome:headless web/test/webdemotest.js",
     "test": "npm run test:postman && npm run test:cli && npm run test:web ",
     "package": "scripty",
-    "cpic": "node cli-client/cli-client.js"
+    "cpic": "node cli-client/cli-client.js",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "author": "KGrid Team",
   "license": "MIT",
@@ -41,7 +43,8 @@
   },
   "devDependencies": {
     "testcafe": "^0.22.0",
-    "testcafe-reporter-xunit": "^2.1.0"
+    "testcafe-reporter-xunit": "^2.1.0",
+    "vuepress": "^0.14.4"
   },
   "scripty": {
     "path": "scripts",
