@@ -29,17 +29,15 @@ npm version                       # node/npm version
 
 1.  Download the latest CPIC Kit *cpic-kit.zip* from GitHub,
 [GitHub CPIC Kit Release](https://github.com/kgrid-demos/cpic-kit/releases/latest).
-1. Unzip cpic-kit.zip to a directory of your choice.  For example to create a cpic-kit directory
-in my projects directory
+1. Unzip cpic-kit.zip to a directory of your choice.  
 1. Via a terminal interface navigate to the *cpic_kit* directory and install the kit
 
-For example:
+For example to create a cpic-kit directory in my projects directory and install the kit:
 ```bash 
 unzip cpic-kit.zip -d /Users/me/projects
 cd /Users/me/projects/cpic-kit
 npm install
 ``` 
-
 
 The install process is downloading the KGrid applications (library and activator) and loading the
 CPIC Knowledge Objects into the system.
