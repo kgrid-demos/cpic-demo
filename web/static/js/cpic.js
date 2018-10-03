@@ -4,7 +4,8 @@ Vue.component('recomtile', {
   props: [
   	'recmodel',
     'reckey',
-    'recindex'
+    'recindex',
+    'library_url'
   ],
   data: function(){
     return {
@@ -15,28 +16,28 @@ Vue.component('recomtile', {
     recrender: function() {
       var obj ={}
       var phenovalue = ''
-      for(var key in this.recmodel.genes){
+      for(var key in this.recmodel.result.genes){
         if(phenovalue!=''){
           phenovalue = phenovalue+ " "
         }
-        if(this.recmodel.genes[key].phenotype){
-          if(this.recmodel.genes[key].phenotype!=''){
-            phenovalue=phenovalue+key+" "+this.recmodel.genes[key].phenotype
+        if(this.recmodel.result.genes[key].phenotype){
+          if(this.recmodel.result.genes[key].phenotype!=''){
+            phenovalue=phenovalue+key+" "+this.recmodel.result.genes[key].phenotype
           }
         } else {
-          if(this.recmodel.genes[key].diplotype!=''){
-            phenovalue=phenovalue+key+" "+this.recmodel.genes[key].diplotype
+          if(this.recmodel.result.genes[key].diplotype!=''){
+            phenovalue=phenovalue+key+" "+this.recmodel.result.genes[key].diplotype
           }
         }
       }
       obj.genes=phenovalue
-      obj.classification = this.recmodel.recommendation.classification
-      obj.implication = this.recmodel.recommendation.implication
-      obj.content=this.recmodel.recommendation.content
+      obj.classification = this.recmodel.result.recommendation.classification
+      obj.implication = this.recmodel.result.recommendation.implication
+      obj.content=this.recmodel.result.recommendation.content
       return obj
     },
-    recommendation: function () {
-      return this.recmodel.content
+    objlink:function() {
+      return this.library_url+"/#/object/"+this.recmodel.info.ko.replace(new RegExp('/', 'g'),'%2F')
     }
   }
 })
@@ -56,6 +57,7 @@ var demo = new Vue({
     			{ text: 'Local', url: 'http://localhost:8082', value: 'local' },
           { text: 'Custom', url: '', value: 'custom'}
       ],
+      libraryurl:{'local': 'http://localhost:8081', 'default': 'https://library.kgrid.org', 'custom': ''},
       settingShow: false,
       autofillSelection: '',
       eventlog: [],
@@ -125,6 +127,9 @@ var demo = new Vue({
   computed: {
     baseUrl: function () {
       return this.activatorurl[this.selectedactivator]
+    },
+    librarybase: function(){
+      return this.libraryurl[this.selectedactivator]
     },
     getdruglist: function () {
       return 	axios(
@@ -304,8 +309,8 @@ var demo = new Vue({
         results.forEach(function (r) {
           console.log('Drug:')
           console.log(r)
-          var rec = r.data.result
-          if (typeof (rec) === 'object') {
+          var rec = r.data
+          if (typeof (rec.result) === 'object') {
               self.recommendationlist.push(rec)
               self.appendLog('app', 'K-GRID Service Response - Recommendation result for ' + rec.drug + ' returned from ark:/' + r.data.info.ko)
           } else {
