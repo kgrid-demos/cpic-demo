@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+node ./scripts/checkUpdate.js
+
 echo "Starting KGrid CPIC Kit"
 
 echo "Starting CPIC Kit demo web site on http://localhost:8083"
