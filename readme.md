@@ -2,7 +2,7 @@
 [![CircleCI](https://circleci.com/gh/kgrid-demos/cpic-kit.svg?style=svg)](https://circleci.com/gh/kgrid-demos/cpic-kit)
 
 
-KGrid CPIC Kit packages [Activator](http://kgrid.org/kgrid-activator/), [Library](http://kgrid.org/kgrid-library) and CPIC Demo Site.  The kit is designed as a personnel CPIC Knowledge Grid used to explore the capablities of KGrid and [CPIC Knowlege Objects](https://kgrid-objects.github.io/cpic-collection/).
+KGrid CPIC Kit packages [Activator](http://kgrid.org/kgrid-activator/), [Library](http://kgrid.org/kgrid-library) and CPIC Demo Site.  The kit is designed as a personal CPIC Knowledge Grid used to explore the capablities of KGrid and [CPIC Knowlege Objects](https://kgrid-objects.github.io/cpic-collection/).
 
 ## Table of Contents
    * [Installation](#installation)
@@ -56,7 +56,7 @@ Once started you will have:
   - Local KGrid Library:   running at http://localhost:8081
   - Local KGrid Activator: running at http://localhost:8082
   - Web Demo App:  running at http://localhost:8083
-
+    
 #### Local KGrid Library
 
 The local KGrid Library manages the CPIC collection of Knowledge Objects.
@@ -103,7 +103,7 @@ Note:
 
 
 #### Command Line Demo
-Takes in multiple patient clinical lab reports (genotype and diplotype) and using the CPIC objects to determines a patient’s predicted metabolizer phenotype and therapeutic recommendations for a set of drugs.
+Takes in multiple patient clinical lab reports (genotype and diplotype) and uses the CPIC objects to determine a patient’s predicted metabolizer phenotype and therapeutic recommendations for a set of drugs.
 
 `npm run cpic cli-client/panel.csv`
 
@@ -116,11 +116,11 @@ For more help with the command line client run
 `npm run cpic --help`
 
 ### Stopping KGrid CPIC Kit
-Stopping the running KGrid activator, library and demo web site can be accomplished with npm stop command
+Stopping the running KGrid activator, library and demo web site can be accomplished with the npm stop command
 `npm stop`
 
 ## Development
-For CPIC Kit developers we have outlined the tools and techniques used tocode, test and publish
+For CPIC Kit developers we have outlined the tools and techniques used to code, test and publish
 the CPIC Kit.  
 
 #### Running
@@ -129,7 +129,7 @@ KGrid Library and a web server that will serve up the web cpic demo application.
 require ```npm stop```.
 
 #### Testing
-The kit has a set of _smoked tests_ that are designed to ensure that the CIPC Kit and be install and started. The tests
+The kit has a set of _smoke tests_ that are designed to ensure that the CIPC Kit and be installed and started. The tests
 excersie the CPIC KOs and demo clients.  They utilize
 * [Jest](https://jestjs.io/) a unit test platform for JavaScript
 * [Newman](https://www.npmjs.com/package/newman) a command-line collection runner for [Postman](https://www.getpostman.com/).
@@ -142,7 +142,7 @@ You can run the tests via the _test_ npm command.
 The CPIC Kit utilizes [CircleCI](https://circleci.com/gh/kgrid-demos/cpic-kit) to build/test/package the kit.
 
 #### Packaging the Kit for distribution
-Publishing a version of the kit requires you to create a new CPIC Kit zip file and creating a new
+Publishing a version of the kit requires you to create a new CPIC Kit zip file and create a new
 [CPIC Kit GitHub release](https://github.com/kgrid-objects/cpic-collection/releases) in the
 [CPIC Kit repository](https://github.com/kgrid-objects/cpic-collection).  The _package_ npm command will zip
 up the CPIC Kit required files into a cpic-kit.zip in the _dist_ directory.
