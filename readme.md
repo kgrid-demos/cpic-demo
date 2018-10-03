@@ -10,10 +10,11 @@ KGrid CPIC Kit packages [Activator](http://kgrid.org/kgrid-activator/), [Library
      * [Start the Kit](#starting-kgrid-cpic-kit)
      * [Stop the Kit](#stopping-kgrid-cpic-kit)
    * [Troubleshooting & Debugging](#troubleshooting--debugging)   
+   * [Kit Updates](#cpic-kit-updates)  
    * [Development](#development)
    
 ## Installation
-
+ß
 To setup the CPIC Kit you need:
 
 - [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
@@ -145,14 +146,61 @@ For Windows,
 
 ### Stopping KGrid CPIC Kit
 Stopping the running KGrid activator, library and demo web site can be accomplished with the npm stop command
+
 `npm stop`
 
+A similar message will appear
+```bash
+Stopping Activator, Library and CPIC Demo web site
+kill -15 229
+kill -15 228
+kill -15 89142
+
+```
 ## Troubleshooting & Debugging
 ### Application Logs 
 On windows the activator, library and web demo components will start their own terminal window. The application logs
 will stream to those terminal windows
 
 On macs the application logs will be stored in the _cpic-kit/activator/activator.log_ and _cpic-kit/library/libray.log_ files.
+
+## CPIC Kit Updates
+Starting the CPIC Kit will first check to see if there have been any updates to the Kit or it's 
+dependencies.
+ 
+When running ```npm start``` a _KGrid Assets Status_ section will appear.  This will report if there is a update.  
+
+Changes in the library, activator and the CPIC knowledge objects can be update by running ```npm install```
+
+Changes to the CPIC Kit itself will require that you download a new cpic-kit.zip file. the example below
+depicts the _KGrid Assets Status_ when you need to download a new cpic-kit.zip.
+
+```bash
+
+       KGrid Assets Status      
+================================
+library: 
+  currentTag:  kgrid-library-1.0.9
+  latestTag:   kgrid-library-1.0.9
+  description: Changed the publish feature
+activator: 
+  currentTag:  kgrid-activator-1.0.1
+  latestTag:   kgrid-activator-1.0.1
+  description: Refactored the health endpoint
+cpic-kos: 
+  currentTag:  1.5.0
+  latestTag:   1.5.0
+  description: Update the Condeine CYP2D6 recommender object 
+cpic-kit: 
+  currentTag:  1.1.0
+  latestTag:   v1.1.0
+  description: This is the release for KGrid team internal review.
+================================
+
+* A new version of CPIC-Kit is avaliable.
+  You can download at https://github.com/kgrid-demos/cpic-kit/releases/download/v1.1.0/cpic-kit.zip
+
+```
 
 ## Development
 For CPIC Kit developers we have outlined the tools and techniques used to code, test and publish

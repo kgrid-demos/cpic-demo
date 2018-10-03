@@ -45,10 +45,10 @@ Promise.all(requests).then(function (values) {
   }
   console.log("================================\n")
   if(kitUpdated){
-    console.log("* A new version of CPIC-Kit is avaliable.\n  You can download at "+kitAsset.download_url+"\n")
+    console.log("* A new version of the CPIC-Kit is available.\n  You can download at "+kitAsset.download_url+"\n")
   }
   if(componentsUpdated){
-    console.log("* A new version of one or more KGrid components is avaliable. You can run `npm install` to update.\n")
+    console.log("* A new version of one or more KGrid components are available. You can run `npm install` to update.\n")
   }
 
 
