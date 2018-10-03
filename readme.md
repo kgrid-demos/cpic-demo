@@ -43,6 +43,25 @@ From the command line install the cpic kit
 The install process is downloading the KGrid applications (library and activator) and loading the
 CPIC Knowledge Objects into the system.
 
+When complete you should see a similar message
+
+```$bash
+Clean up complete
+Load KGrid Assets
+Downloading kgrid-activator-1.0.1.jar
+Downloading kgrid-library-1.0.9.jar
+Downloading cpic-all.zip
+cpic-all.zip downloaded to dist
+kgrid-activator-1.0.1.jar downloaded to activator
+kgrid-library-1.0.9.jar downloaded to library
+*********************************
+*    KGRID INSTALL COMPLETE     *
+*                               *
+* Type 'npm start' to run KGrid *
+*                               *
+*********************************
+```
+
 ## Usage
 
 ### Starting KGrid CPIC Kit
@@ -52,38 +71,27 @@ From the command line of the kit directory start the kit.
 
 `npm start`
 
-Once started you will have:
-  - Local KGrid Library:   running at http://localhost:8081
-  - Local KGrid Activator: running at http://localhost:8082
-  - Web Demo App:  running at http://localhost:8083
-    
-#### Local KGrid Library
+```bash
+Starting KGrid CPIC Kit
+Starting CPIC Kit demo web site on http://localhost:8083
+Starting library on http://localhost:8081
+Starting activator on http://localhost:8082
+Waiting.....
+KGrid CPIC Kit is running
+```
 
-The local KGrid Library manages the CPIC collection of Knowledge Objects.
-
-For Mac, type `open http://localhost:8081`;
-
-For Windows, type `start http://localhost:8081`
-
-#### Local KGrid Activator
-
-The local KGrid Activator activates the CPIC collection of Knowledge Objects.
-
-To check the status of the activator,
-
-For Mac,
-`open http://localhost:8082/health`
-
-For Windows,
-`start http://localhost:8082/health`
-
+Once started you can navigate to the Web and Command Line Demo clients as well as access the
+ KGrid Library and KGrid Activator.
+ 
+ 1. [Web Demo Client](#web-demo)
+ 1. [Command Line Demo Client](#command-line-demo)
+ 1. [KGrid Library](#local-kgrid-library)
+ 1. [KGrid Activator](#local-kgrid-activator)
 
 #### Web Demo
 
 This app simulates a panel of a patient's genotype and diplotype and generates drug dosing recommendations.
-
 Geno-to-pheno Knowledge objects are used to determine each gene's phenotype, if applicable.
-
 Relevant drugs recommendations are then determined based on the available genetic information, using the drug dosing recommendation KO.
 
 To access the demo,
@@ -114,6 +122,26 @@ To have the script output to a file use the following command:
 For more help with the command line client run
 
 `npm run cpic --help`
+    
+#### Local KGrid Library
+
+The local KGrid Library manages the CPIC collection of Knowledge Objects.
+
+For Mac, type `open http://localhost:8081`;
+
+For Windows, type `start http://localhost:8081`
+
+#### Local KGrid Activator
+
+The local KGrid Activator activates the CPIC collection of Knowledge Objects.
+
+To check the status of the activator,
+
+For Mac,
+`open http://localhost:8082/health`
+
+For Windows,
+`start http://localhost:8082/health`
 
 ### Stopping KGrid CPIC Kit
 Stopping the running KGrid activator, library and demo web site can be accomplished with the npm stop command
@@ -121,30 +149,5 @@ Stopping the running KGrid activator, library and demo web site can be accomplis
 
 ## Development
 For CPIC Kit developers we have outlined the tools and techniques used to code, test and publish
-the CPIC Kit.  
+the CPIC Kit.  Please see details in the [Developer Readme](developer-readme.md)
 
-#### Running
-You can start the kit via ```npm start```.  Starting the kit runs the KGrid Activator,
-KGrid Library and a web server that will serve up the web cpic demo application.  Stopping these applications
-require ```npm stop```.
-
-#### Testing
-The kit has a set of _smoke tests_ that are designed to ensure that the CIPC Kit and be installed and started. The tests
-excersie the CPIC KOs and demo clients.  They utilize
-* [Jest](https://jestjs.io/) a unit test platform for JavaScript
-* [Newman](https://www.npmjs.com/package/newman) a command-line collection runner for [Postman](https://www.getpostman.com/).
-
-You can run the tests via the _test_ npm command.
-
-```npm test```
-
-#### Continuous Integration
-The CPIC Kit utilizes [CircleCI](https://circleci.com/gh/kgrid-demos/cpic-kit) to build/test/package the kit.
-
-#### Packaging the Kit for distribution
-Publishing a version of the kit requires you to create a new CPIC Kit zip file and create a new
-[CPIC Kit GitHub release](https://github.com/kgrid-objects/cpic-collection/releases) in the
-[CPIC Kit repository](https://github.com/kgrid-objects/cpic-collection).  The _package_ npm command will zip
-up the CPIC Kit required files into a cpic-kit.zip in the _dist_ directory.
-
-```npm run package```
