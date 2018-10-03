@@ -17,7 +17,7 @@ let requests = Object.keys(pkg.githubAssets).map(
 
 Promise.all(requests).then(function (values) {
 
-  console.log("Completed KGrid Asset Load ");
+
 
   fs.createReadStream('dist/cpic-all.zip').pipe(
       unzip.Extract({path: 'library/shelf'}));
@@ -47,6 +47,11 @@ Promise.all(requests).then(function (values) {
     }
   }
 
-
+  console.log("*********************************");
+  console.log("*    KGRID INSTALL COMPLETE     *");
+  console.log("*                               *");
+  console.log("* Type 'npm start' to run KGrid *");
+  console.log("*                               *");
+  console.log("*********************************");
 
 });
