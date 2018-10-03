@@ -8,10 +8,10 @@ echo "Starting CPIC Kit demo web site on http://localhost:8083"
 cd web &&  nohup ../node_modules/http-server/bin/http-server -p 8083 -a localhost  &>/dev/null &
 
 echo "Starting library on http://localhost:8081"
-nohup java -jar library/kgrid-library.jar --server.port=8081 --kgrid.shelf.cdostore.url=filesystem:file://library/shelf &>/dev/null &
+nohup java -jar library/kgrid-library.jar --server.port=8081 --kgrid.shelf.cdostore.url=filesystem:file://library/shelf &>library/library.log &
 
 echo "Starting activator on http://localhost:8082"
-nohup java -jar activator/kgrid-activator.jar --server.port=8082 --kgrid.shelf.cdostore.url=filesystem:file://activator/shelf &>/dev/null &
+nohup java -jar activator/kgrid-activator.jar --server.port=8082 --kgrid.shelf.cdostore.url=filesystem:file://activator/shelf &>activator/activator.log &
 
 
 echo "Waiting....."
