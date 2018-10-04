@@ -3,7 +3,7 @@ home: false
 sidebarDepth: 2
 ---
 
-# CPIC Kit Get Started
+# CPIC Kit Get Started Guide
 [![GitHub release](https://img.shields.io/github/release/kgrid-demos/cpic-kit.svg)](https://github.com/kgrid-demos/cpic-kit/releases/)
 [![CircleCI](https://circleci.com/gh/kgrid-demos/cpic-kit.svg?style=svg)](https://circleci.com/gh/kgrid-demos/cpic-kit)
 
