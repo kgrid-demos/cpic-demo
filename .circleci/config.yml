@@ -2,24 +2,15 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
+
 version: 2
 jobs:
   build:
-    filters:
-      branches:
-        only:
-          - master
-
     docker:
     # specify the version you desire here
     - image: circleci/openjdk:8-jdk-node-browsers
 
     working_directory: ~/repo
-
-    filters:
-      branches:
-        ignore:
-        - gh-pages
 
     steps:
     - checkout
@@ -54,3 +45,12 @@ jobs:
 
     - store_test_results:
         path: test-results
+
+workflows:
+  version: 2
+  main:
+    jobs:
+    - build:
+        filters:
+          branches:
+            only: master

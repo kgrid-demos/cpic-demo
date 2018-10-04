@@ -1,6 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
 activator/
-dist/
+/dist/
 library/
 node_modules/
+/docs/.vuepress/dist/
+
