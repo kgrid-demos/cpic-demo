@@ -4,13 +4,17 @@
 #
 version: 2
 jobs:
-
   build:
     docker:
     # specify the version you desire here
     - image: circleci/openjdk:8-jdk-node-browsers
 
     working_directory: ~/repo
+
+    filters:
+      branches:
+        ignore:
+        - gh-pages
 
     steps:
     - checkout
@@ -45,12 +49,3 @@ jobs:
 
     - store_test_results:
         path: test-results
-
-workflows:
-  version: 2
-  build:
-    jobs:
-    - build:
-        filters:
-          branches:
-            only: master
