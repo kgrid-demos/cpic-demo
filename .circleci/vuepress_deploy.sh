@@ -16,4 +16,4 @@ git add -A
 git commit -m 'deploy'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:kgrid-demos/cpic-kit.git master:gh-pages
+git push -f https://${GITHUB_TOKEN}@github.com/kgrid-demos/cpic-kit.git master:gh-pages
