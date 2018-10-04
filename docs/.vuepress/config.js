@@ -1,5 +1,5 @@
 module.exports = {
-  base: '/docs/',
+  base: '/cpic-kit/',
   title: 'CPIC Kit',
   themeConfig: {
     repo: 'kgrid-demos/cpic-kit',
