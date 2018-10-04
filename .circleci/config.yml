@@ -10,6 +10,9 @@ jobs:
     - image: circleci/openjdk:8-jdk-node-browsers
 
     working_directory: ~/repo
+    branches:
+      only:
+      - master
 
     steps:
     - checkout
@@ -38,7 +41,7 @@ jobs:
     - run:
         name: Deploy VuePress GitHub Pages
         command: |
-              .circleci/vuepress_deploy,sh
+              .circleci/vuepress_deploy.sh
 
 
     - store_artifacts:
