@@ -2,6 +2,8 @@
 
 # abort on errors
 set -e
+git config --global user.email "kgrid-developers@umich.edu"
+git config --global user.name "circleci"
 
 # build
 npm run docs:build
