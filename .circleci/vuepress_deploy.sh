@@ -17,7 +17,7 @@ cd docs/.vuepress/dist
 
 git init
 git add -A
-git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
+git commit -m "Automated deployment to GitHub Pages"
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 git push -f https://${GITHUB_TOKEN}@github.com/kgrid-demos/cpic-kit.git master:gh-pages
