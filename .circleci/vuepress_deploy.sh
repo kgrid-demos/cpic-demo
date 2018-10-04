@@ -6,7 +6,7 @@ set -e
 # build
 npm run docs:build
 # copy web demo to github pages dist
-cp web docs/.vuepress/dist
+cp -r web docs/.vuepress/dist
 
 # navigate into the build output directory
 cd docs/.vuepress/dist
