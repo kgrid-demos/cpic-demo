@@ -1,18 +1,7 @@
 ---
 home: false
 sidebarDepth: 2
-heroImage: /hero.png
-actionText: Get Started →
-actionLink: /guide/
-features:
-- title: Knowledge Gird Library
-  details: Minimal setup with markdown-centered project structure helps you focus on writing.
-- title: Knowledge Gird Activator
-  details: Enjoy the dev experience of Vue + webpack, use Vue components in markdown, and develop custom themes with Vue.
-- title: Knowledge Objects
-  details: VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
 footer: MIT Licensed | Copyright © 2018-present University of Michigan, Medical School
-
 ---
 
 # CPIC Kit Development
@@ -23,12 +12,12 @@ the CPIC Kit.
 
 ### Running
 You can start the kit via ```npm start```.  Starting the kit runs the KGrid Activator,
-KGrid Library and a web server that will serve up the web cpic demo application.  Stopping these applications
+KGrid Library and a web server that will serve up the web CPIC demo application.  Stopping these applications
 require ```npm stop```.
 
 ### Testing
 The kit has a set of _smoke tests_ that are designed to ensure that the CIPC Kit and be installed and started. The tests
-excersie the CPIC KOs and demo clients.  They utilize
+exercise the CPIC KOs and demo clients.  They utilize
 * [Jest](https://jestjs.io/) a unit test platform for JavaScript
 * [Newman](https://www.npmjs.com/package/newman) a command-line collection runner for [Postman](https://www.getpostman.com/).
 
