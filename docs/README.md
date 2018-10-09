@@ -15,7 +15,7 @@ KGrid CPIC Kit packages [Activator](http://kgrid.org/kgrid-activator/), [Library
 To setup the CPIC Kit you need:
 - Terminal Window
 - [Java 8 or higher](https://www.oracle.com/java/)
-- [Node.js](http://nodejs.org/)
+- [Node 8 or higher](http://nodejs.org/)
 
 To verify the versions for installed software, type in the following in you terminal widow :
 
