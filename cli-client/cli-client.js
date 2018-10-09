@@ -4,9 +4,11 @@ const axios = require('axios');
 const fs = require('fs-extra');
 const exists = require('fs').existsSync;
 const csvtojson = require('csvtojson');
+const readStdIn = require('./read-std-in');
 
 const genophenokolistPath = '/99999/fk4qj7sz2t/v0.0.4/genophenokolist';
 const druglistPath = '/99999/fk4qj7sz2s/v0.0.5/druglist';
+const stdin = process.stdin;
 var host;
 var filename;
 var results = [];
@@ -14,32 +16,22 @@ var results = [];
 program
   .version('0.1.0')
   .description('Use the CPIC toolkit to process panels of patient data')
-  .arguments('<dataFilename> [host]').action((fileArg, hostArg) => {
-    filename = fileArg;
+  .arguments('[host]').action((hostArg) => {
     host = hostArg || 'http://localhost:8082';
   }).on('--help', function() {
     console.log('');
     console.log('Examples:');
     console.log('');
-    console.log('  $ cpic panel.csv http://localhost:8081 > results.json');
-    console.log('  $ cpic patient-data.csv https://kgrid-activator.herokuapp.com');
+    console.log('  $ cat panel.json | cpic http://localhost:8081 > results.json');
+    console.log('  $ cat panel.json | cpic https://kgrid-activator.herokuapp.com');
   }).parse(process.argv);
 
-readGeneticPanelCSV(filename);
+// Read from standard in
+readStdIn().then(input => processPatientData(input));
 
-function readGeneticPanelCSV(filename) {
-  if (exists(filename)) {
-    csvtojson()
-    .fromFile(filename)
-    .then(json => {
-      processPatientData(json);
-    });
-  } else {
-    console.error('Cannot find input file ', filename)
-  }
-}
+function processPatientData (input) {
+  var data = JSON.parse(input);
 
-function processPatientData (data) {
   var promises = data.map(function (patientData) {
 
     var patientRecommendations = [];
@@ -72,7 +64,7 @@ function processPatientData (data) {
   });
 
   // Output results to standard out as an array of patient results
-  Promise.all(promises).then(r => (console.log(JSON.stringify(results, null, 2))));
+  Promise.all(promises).then(r => (console.log(JSON.stringify(results))));
 }
 
 function postJsonRequest(path, data) {

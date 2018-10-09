@@ -111,15 +111,19 @@ Note:
 #### Command Line Demo
 Takes in multiple patient clinical lab reports (genotype and diplotype) and uses the CPIC objects to determine a patient’s predicted metabolizer phenotype and therapeutic recommendations for a set of drugs.
 
-`npm run cpic cli-client/panel.csv`
+`cat cli-client/panel.json | npm run cpic`
 
 To have the script output to a file use the following command:
 
-`npm run cpic cli-client/panel.csv > output.json`
+`cat cli-client/panel.json | npm run cpic > output.json`
 
 For more help with the command line client run
 
 `npm run cpic --help`
+
+There are now helper js files to convert between json and csv and they can be used with the cli client like so:
+
+cat cli-client/panel.csv | node cli-client/csv-to-json.js | node cli-client/cli-client.js http://localhost:8083 | node cli-client/json-to-csv.js > cli-client/output.csv
 
 #### Local KGrid Library
 
