@@ -86,7 +86,7 @@ Once started you can navigate to the Web and Command Line Demo clients as well a
  1. [KGrid Library](#local-kgrid-library)
  1. [KGrid Activator](#local-kgrid-activator)
 
-#### Web Demo
+### Web Demo
 
 This app simulates a panel of a patient's genotype and diplotype and generates drug dosing recommendations.
 Geno-to-pheno Knowledge objects are used to determine each gene's phenotype, if applicable.
@@ -108,24 +108,47 @@ Note:
   - Click on the app log, the log area will expand to show more details on the interactions with the connected KGrid activator.
 
 
-#### Command Line Demo
-Takes in multiple patient clinical lab reports (genotype and diplotype) and uses the CPIC objects to determine a patient’s predicted metabolizer phenotype and therapeutic recommendations for a set of drugs.
+### Command Line Demo
+There are three scripts that make up the batch/command line demo
 
-`cat cli-client/panel.json | npm run cpic`
+- [csv-to-json.js](https://github.com/kgrid-demos/cpic-kit/master/cli-client/csv-to-json.js) - takes in csv and outputs JSON.  example of a possible extract from a EHR/EMR
+- [cli-client.js](https://github.com/kgrid-demos/cpic-kit/master/cli-client/cli-client.js)  - takes in multiple patient clinical lab reports (genotype and diplotype) and uses the CPIC objects 
+to determine a patient’s predicted metabolizer phenotype and therapeutic recommendations for a set of drugs.
+- [json-to-csv.js](https://github.com/kgrid-demos/cpic-kit/master/cli-client/json-to-csv.js)  - takes the recommendation output of cli-client.js and renders it in csv format
+
+#### JSON Patient Panel Input and Output
+Takes in multiple patient clinical lab reports in the form of json
+
+```bash
+cat cli-client/panel.json | npm run cpic
+```
 
 To have the script output to a file use the following command:
 
-`cat cli-client/panel.json | npm run cpic > output.json`
+```bash
+cat cli-client/panel.json | npm run cpic > output.json
+```
 
-For more help with the command line client run
+#### CSV Patient Panel Input and CSV Output
+Here we use all three scripts to take a 
+1. multiple patient clinical lab report in a csv format convert and convert to json
+1. run the json multiple patient clinical lab report through the CPIC recommendation process
+1. add the recommendation information to the csv 
 
-`npm run cpic --help`
+(_Note: a single patient can have several 
+recommendations, each recommendation is represent as a new row for the particular patient 
+in the cvs file_)
 
-There are now helper js files to convert between json and csv and they can be used with the cli client like so:
+Here is the pipeline command:
 
-```cat cli-client/panel.csv | node cli-client/csv-to-json.js | node cli-client/cli-client.js | node cli-client/json-to-csv.js > cli-client/output.csv```
+```bash
+cat cli-client/panel.csv | \
+node cli-client/csv-to-json.js |\
+node cli-client/cli-client.js |\
+node cli-client/json-to-csv.js > cli-client/output.csv
+```
 
-#### Local KGrid Library
+### Local KGrid Library
 
 The local KGrid Library manages the CPIC collection of Knowledge Objects.
 
@@ -133,7 +156,7 @@ For Mac, type `open http://localhost:8081`;
 
 For Windows, type `start http://localhost:8081`
 
-#### Local KGrid Activator
+### Local KGrid Activator
 
 The local KGrid Activator activates the CPIC collection of Knowledge Objects.
 
