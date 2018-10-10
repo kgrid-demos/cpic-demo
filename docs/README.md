@@ -123,7 +123,7 @@ For more help with the command line client run
 
 There are now helper js files to convert between json and csv and they can be used with the cli client like so:
 
-cat cli-client/panel.csv | node cli-client/csv-to-json.js | node cli-client/cli-client.js http://localhost:8083 | node cli-client/json-to-csv.js > cli-client/output.csv
+```cat cli-client/panel.csv | node cli-client/csv-to-json.js | node cli-client/cli-client.js | node cli-client/json-to-csv.js > cli-client/output.csv```
 
 #### Local KGrid Library
 

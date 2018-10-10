@@ -1,82 +1,87 @@
 [
   {
     "patient": {
-      "name": "Hank Hill",
-      "id": "001"
+        "name": "Hank Hill",
+        "id": "1"
     },
     "diplotype": {
-      "CFTR": "",
-      "CYP2C19":"*1/*11",
-      "CYP2C9" :"",
+      "CYP2C19": "*1/*11",
+      "CYP2C9": "",
       "CYP2D6": "*3/*3",
       "CYP3A5": "",
-      "CYP4F2": "",
-      "DPYD": "",
-      "G6PD": "",
-      "HLA-A" : "",
-      "HLA-B" : "",
-      "IFNL3" : "",
-      "SLCO1B1" : "",
-      "TPMT" : "",
-      "UGT1A1": "*1/*1",
-      "VKORC1" : ""
+      "HLA-B": "*1/*1",
+      "SLCO1B1": "",
+      "TPMT": "",
+      "UGT1A1": "*1/*1"
     },
-    "prescriptions": {
-      "atazanavir": true,
-      "codeine": true
-    }
+    "prescriptions": "atazanavir codeine abacavir"
   },
   {
-  "patient": {
-    "name": "Hank Green",
-    "id": "002"
+    "patient": {
+      "name": "Hank Green",
+      "id": "2"
     },
     "diplotype": {
-      "CFTR": "",
-      "CYP2C19":"*1/*7",
-      "CYP2C9" :"*3/*3",
+      "CYP2C19": "*1/*7",
+      "CYP2C9": "*3/*3",
       "CYP2D6": "*3/*4",
       "CYP3A5": "",
-      "CYP4F2": "",
-      "DPYD": "",
-      "G6PD": "",
-      "HLA-A" : "",
-      "HLA-B" : "",
-      "IFNL3" : "",
-      "SLCO1B1" : "",
-      "TPMT" : "",
-      "UGT1A1": "",
-      "VKORC1" : ""
+      "HLA-B": "",
+      "SLCO1B1": "",
+      "TPMT": "",
+      "UGT1A1": ""
     },
-    "prescriptions": {
-      "escitalopram": true,
-      "clopidogrel": true
-    }
+    "prescriptions": "escitalopram clopidogrel"
   },
   {
     "patient": {
       "name": "Hank Aaron",
-      "id": "003"
+      "id": "3"
     },
     "diplotype": {
-      "CFTR": "",
-      "CYP2C19":"*1/*1",
-      "CYP2C9" :"*1/*1",
+      "CYP2C19": "*1/*1",
+      "CYP2C9": "*1/*1",
       "CYP2D6": "*3/*3",
       "CYP3A5": "",
-      "CYP4F2": "",
-      "DPYD": "",
-      "G6PD": "",
-      "HLA-A" : "",
-      "HLA-B" : "",
-      "IFNL3" : "",
-      "SLCO1B1" : "",
-      "TPMT" : "",
-      "UGT1A1": "",
-      "VKORC1" : ""
+      "HLA-B": "*1/*57:01",
+      "SLCO1B1": "",
+      "TPMT": "",
+      "UGT1A1": ""
     },
-    "prescriptions": {
-      "clopidogrel": true
-    }
+    "prescriptions": "clopidogrel abacavir"
+  },
+  {
+    "patient": {
+      "name": "Hank Williams",
+      "id": "4"
+    },
+    "diplotype": {
+      "CYP2C19": "*1/*4B",
+      "CYP2C9": "*2/*4",
+      "CYP2D6": "*10x2/*34",
+      "CYP3A5": "*1/*6",
+      "HLA-B": "*1/*1",
+      "SLCO1B1": "*1/*5",
+      "TPMT": "*2/*3A",
+      "UGT1A1": "*36/*80"
+    },
+    "prescriptions": "fluvoxamine paroxetine clopidogrel ondansetron thioguanine voriconazole atazanavir citalopram escitalopram tropisetron mercaptopurine simvastatin codeine carbamazepine oxcarbazepine phenytoin azathioprine tacrolimus amitriptyline sertraline abacavir allopurinol"
+  },
+  {
+    "patient": {
+      "name": "Hank Azaria",
+      "id": "5"
+    },
+    "diplotype": {
+      "CYP2C19": "*1/*1",
+      "CYP2C9": "*1/*1",
+      "CYP2D6": "*1/*1",
+      "CYP3A5": "*1/*1",
+      "HLA-B": "*1/*1",
+      "SLCO1B1": "*1/*1",
+      "TPMT": "*1/*1",
+      "UGT1A1": "*1/*1"
+    },
+    "prescriptions": "fluvoxamine paroxetine clopidogrel ondansetron thioguanine voriconazole atazanavir citalopram escitalopram tropisetron mercaptopurine simvastatin codeine carbamazepine oxcarbazepine phenytoin azathioprine tacrolimus amitriptyline sertraline abacavir allopurinol"
   }
 ]
