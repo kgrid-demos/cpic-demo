@@ -111,10 +111,10 @@ Note:
 ### Command Line Demo
 There are three scripts that make up the batch/command line demo
 
-- [csv-to-json.js](https://github.com/kgrid-demos/cpic-kit/master/cli-client/csv-to-json.js) - takes in csv and outputs JSON.  example of a possible extract from a EHR/EMR
-- [cli-client.js](https://github.com/kgrid-demos/cpic-kit/master/cli-client/cli-client.js)  - takes in multiple patient clinical lab reports (genotype and diplotype) and uses the CPIC objects 
+- [csv-to-json.js](https://raw.githubusercontent.com/kgrid-demos/cpic-kit/blob/master/cli-client/csv-to-json.js) - takes in csv and outputs JSON.  example of a possible extract from a EHR/EMR
+- [cli-client.js](https://github.com/kgrid-demos/cpic-kit/blob/master/cli-client/cli-client.js)  - takes in multiple patient clinical lab reports (genotype and diplotype) and uses the CPIC objects 
 to determine a patient’s predicted metabolizer phenotype and therapeutic recommendations for a set of drugs.
-- [json-to-csv.js](https://github.com/kgrid-demos/cpic-kit/master/cli-client/json-to-csv.js)  - takes the recommendation output of cli-client.js and renders it in csv format
+- [json-to-csv.js](https://github.com/kgrid-demos/cpic-kit/blob/master/cli-client/json-to-csv.js)  - takes the recommendation output of cli-client.js and renders it in csv format
 
 #### JSON Patient Panel Input and Output
 Takes in multiple patient clinical lab reports in the form of json
