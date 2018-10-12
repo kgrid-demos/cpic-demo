@@ -312,9 +312,9 @@ var demo = new Vue({
           var rec = r.data
           if (typeof (rec.result) === 'object') {
               self.recommendationlist.push(rec)
-              self.appendLog('app', 'K-GRID Service Response - Recommendation result for ' + rec.drug + ' returned from ark:/' + r.data.info.ko)
+              self.appendLog('app', 'K-GRID Service Response - Recommendation result for ' + rec.result.drug + ' returned from ark:/' + r.data.info.ko)
           } else {
-            self.appendLog('app', 'K-GRID Service Response - ' + rec + ' for ark:/' + r.data.info.ko)
+            // self.appendLog('app', 'K-GRID Service Response - ' + rec.result + ' for ark:/' + r.data.info.ko)
           }
         })
       }).catch(function(error){
