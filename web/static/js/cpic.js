@@ -113,6 +113,7 @@ var demo = new Vue({
            self.appendLog('app', 'K-GRID Service Response - Geno to Pheno KO list returned from Knowledge Object ark:' + self.genophenolookupko.id)
       		 self.appendLog('app', self.logtext.request + self.druglookupko.id)
            self.appendLog('app', 'K-GRID Service Response - Gene drug table returned from Knowledge Object ark:' + self.druglookupko.id)
+           self.appendLog('app', 'Demo App is Ready. Choose a sample patient genetic panel or manually enter the diplotypes.')
            self.recommendationkolist = druglist.data.result
            self.genophenokolist = genophenolist.data.result
            self.activatorReady=true
