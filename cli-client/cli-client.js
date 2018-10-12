@@ -8,7 +8,8 @@ const readStdIn = require('./read-std-in');
 
 const genophenokolistPath = '/99999/fk4qj7sz2t/v0.0.4/genophenokolist';
 const druglistPath = '/99999/fk4qj7sz2s/v0.0.5/druglist';
-const stdin = process.stdin;
+const batchSize = 50;
+const batchTiming = 500;
 var host;
 var filename;
 var results = [];
@@ -26,13 +27,21 @@ program
     console.log('  $ cat panel.json | cpic https://kgrid-activator.herokuapp.com');
   }).parse(process.argv);
 
-// Read from standard in
-readStdIn().then(input => processPatientData(input));
-
-function processPatientData (input) {
+// Read from standard in in batches
+readStdIn().then(async (input) => {
   var data = JSON.parse(input);
+  var batches = Math.ceil(data.length/batchSize);
+  for(var currentBatch = 0; currentBatch < batches; currentBatch++) {
+    var batch = await data.slice(batchSize * currentBatch, batchSize * (currentBatch+1));
+    // Throttling with setTimeout
+    await new Promise (resolve => {setTimeout(() => resolve(processPatientData(batch)), batchTiming)});
+  }
+  await console.log(JSON.stringify(results, null, 4));
+});
 
-  var promises = data.map(function (patientData) {
+function processPatientData (dataBatch) {
+
+  dataBatch.forEach(async function (patientData) {
 
     var patientRecommendations = [];
 
@@ -40,31 +49,29 @@ function processPatientData (input) {
     // object with a key for each prescription, this needs to be done
     // because the current JS adapter cannot read in arrays :(
     var drugObj = {};
-    var prescriptions;
-    if(patientData.prescriptions)
+
+    if (patientData.prescriptions)
       patientData.prescriptions.split(' ').forEach(rx => {drugObj[rx] = true});
 
-    // Get genotype to phenotype ko addresses, then generate phenotype panel for patient
-    // then generate drug recommendations, then aggregate the results in an object
-    return postJsonRequest(genophenokolistPath, patientData.diplotype)
-    .then(response => generatePhentotypes(response.data.result, patientData.diplotype))
-    .then(phenotypePanel => generateDrugRecs(drugObj, phenotypePanel, patientRecommendations))
-    .then(phenotypePanel => aggregateResults(patientData.patient, patientRecommendations))
-    .catch(error => {
-      if(error.response) {
+    try {
+      // Get genotype to phenotype ko addresses, then generate phenotype panel for patient
+      // then generate drug recommendations, then aggregate the results in an object
+      var response = await postJsonRequest(genophenokolistPath, patientData.diplotype);
+      var phenotypePanel = await generatePhentotypes(response.data.result, patientData.diplotype);
+      await generateDrugRecs(drugObj, phenotypePanel, patientRecommendations);
+      await aggregateResults(patientData.patient, patientRecommendations);
+    } catch(error) {
+      if (error.response) {
         console.error(error.response.data);
       } else if (error.request) {
-        console.error('Cannot connect to', error.request._currentUrl, 'check the host name or specify a host with $ cpic <dataFilename> [host]');
+        console.error('Cannot connect to', error.request._currentUrl,
+            'check the host name or specify a host with $ cpic [host]');
         process.exit(1);
       } else {
         console.error(error.message);
       }
-    });
-    // Todo: improve flow of above, eliminate global results variable
+    }
   });
-
-  // Output results to standard out as an array of patient results
-  Promise.all(promises).then(r => (console.log(JSON.stringify(results))));
 }
 
 function postJsonRequest(path, data) {

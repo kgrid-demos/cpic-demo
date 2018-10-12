@@ -37,6 +37,7 @@
     "jsonpath": "^1.0.0",
     "newman": "^4.1.0",
     "prettyjson": "^1.2.1",
+    "promise-throttle": "^1.0.0",
     "request": "^2.88.0",
     "scripty": "^1.7.2",
     "shelljs": "^0.8.2",
