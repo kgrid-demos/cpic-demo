@@ -35,3 +35,21 @@ Publishing a version of the kit requires you to create a new CPIC Kit zip file a
 up the CPIC Kit required files into a cpic-kit.zip in the _dist_ directory.
 
 ```npm run package```
+
+### Publish Documentation
+
+Running Local Dev Docs Publish
+```
+npm install
+npm run docs:dev
+```
+
+Build dist directory ready for publish
+
+```
+npm run docs:build`
+```
+
+CircleCi publishes the documentation using [VuePress](https://vuepress.vuejs.org/) and 
+the ```.circleci/vuepress_deploy.sh``` script.  The gh-pages branch is used for the publishing process and setup in the
+GitHub repository's GitHub Pages.
