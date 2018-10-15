@@ -47,37 +47,37 @@ function processArray(array, fn) {
 function processPatientData (input) {
   var data = JSON.parse(input);
 
-  var funcs = data.map(function (patientData) {
-
-    var patientRecommendations = [];
-
-    // Convert the string list of prescriptions separated by spaces into an
-    // object with a key for each prescription, this needs to be done
-    // because the current JS adapter cannot read in arrays :(
-    var drugObj = {};
-    var prescriptions;
-    if(patientData.prescriptions)
-      patientData.prescriptions.split(' ').forEach(rx => {drugObj[rx] = true});
-
-    // Get genotype to phenotype ko addresses, then generate phenotype panel for patient
-    // then generate drug recommendations, then aggregate the results in an object
-    return postJsonRequest(genophenokolistPath, patientData.diplotype)
-    .then(response => generatePhentotypes(response.data.result, patientData.diplotype))
-    .then(phenotypePanel => generateDrugRecs(drugObj, phenotypePanel, patientRecommendations))
-    .then(phenotypePanel => aggregateResults(patientData.patient, patientRecommendations))
-    .catch(error => {
-      if(error.response) {
-        console.error(error.response.data);
-      } else if (error.request) {
-        console.error('Cannot connect to', error.request._currentUrl, 'check the host name or specify a host with $ cpic <dataFilename> [host]');
-        process.exit(1);
-      } else {
-        console.error(error.message);
-      }
-    });
-    // Todo: improve flow of above, eliminate global results variable
-  });
-
+  // var funcs = data.map(function (patientData) {
+  //
+  //   var patientRecommendations = [];
+  //
+  //   // Convert the string list of prescriptions separated by spaces into an
+  //   // object with a key for each prescription, this needs to be done
+  //   // because the current JS adapter cannot read in arrays :(
+  //   var drugObj = {};
+  //   var prescriptions;
+  //   if(patientData.prescriptions)
+  //     patientData.prescriptions.split(' ').forEach(rx => {drugObj[rx] = true});
+  //
+  //   // Get genotype to phenotype ko addresses, then generate phenotype panel for patient
+  //   // then generate drug recommendations, then aggregate the results in an object
+  //   return postJsonRequest(genophenokolistPath, patientData.diplotype)
+  //   .then(response => generatePhentotypes(response.data.result, patientData.diplotype))
+  //   .then(phenotypePanel => generateDrugRecs(drugObj, phenotypePanel, patientRecommendations))
+  //   .then(phenotypePanel => aggregateResults(patientData.patient, patientRecommendations))
+  //   .catch(error => {
+  //     if(error.response) {
+  //       console.error(error.response.data);
+  //     } else if (error.request) {
+  //       console.error('Cannot connect to', error.request._currentUrl, 'check the host name or specify a host with $ cpic <dataFilename> [host]');
+  //       process.exit(1);
+  //     } else {
+  //       console.error(error.message);
+  //     }
+  //   });
+  //   // Todo: improve flow of above, eliminate global results variable
+  // });
+  // console.log(data.length)
   // Output results to standard out as an array of patient results
   // Promise.all(promises).then(r => (console.log(JSON.stringify(results))));
   processArray(data, singlepatientprocess).then(function() {
