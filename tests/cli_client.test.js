@@ -3,7 +3,7 @@ var shell = require('shelljs');
 describe('smoke test cpic cli client', () => {
   test('simple json panel', ()  => {
 
-     var cli = shell.exec('cat cli-client/panel.json | node cli-client/cli-client.js ', {silent:true});
+     var cli = shell.cat("cli-client/panel.json").exec('node cli-client/cli-client.js ', {silent:true});
 
      expect(cli.stderr).toBe("");
 
@@ -28,11 +28,11 @@ describe('smoke test cpic cli client', () => {
 
   test('simple csv panel to json panel', ()  => {
 
-    var cli = shell.exec('cat cli-client/panel.csv | node cli-client/csv-to-json.js ', {silent:true});
+    var cli = shell.cat("cli-client/panel.csv").exec(' node cli-client/csv-to-json.js ', {silent:true});
 
     expect(cli.stderr).toBe("");
 
-    var jsonPanel = shell.exec('cat cli-client/panel.json', {silent:true}).stdout;
+    var jsonPanel = shell.cat('cli-client/panel.json');
 
     expect(cli.stdout.replace(/\s/g, "")).toBe(jsonPanel.replace(/\s/g, ""));
 
@@ -40,7 +40,7 @@ describe('smoke test cpic cli client', () => {
 
   test('simple csv panel', ()  => {
 
-    var cli = shell.exec('cat cli-client/panel.csv | node cli-client/csv-to-json.js | node cli-client/cli-client.js', {silent:true});
+    var cli = shell.cat("cli-client/panel.csv").exec(' node cli-client/csv-to-json.js | node cli-client/cli-client.js', {silent:true});
 
     expect(cli.stderr).toBe("");
 
@@ -66,7 +66,7 @@ describe('smoke test cpic cli client', () => {
 
   test('simple csv panel', ()  => {
 
-    var cli = shell.exec('cat cli-client/panel.csv | node cli-client/csv-to-json.js | node cli-client/cli-client.js | node cli-client/json-to-csv.js', {silent:true});
+    var cli = shell.cat('cli-client/panel.csv').exec( ' node cli-client/csv-to-json.js | node cli-client/cli-client.js | node cli-client/json-to-csv.js', {silent:true});
 
     expect(cli.stderr).toBe("");
 
