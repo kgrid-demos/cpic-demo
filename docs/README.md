@@ -108,25 +108,100 @@ Note:
   - Click on the app log, the log area will expand to show more details on the interactions with the connected KGrid activator.
 
 
-### Command Line Demo
-There are three scripts that make up the batch/command line demo
+### Batch Command Line Demo
+The Batch Command Line demos are capablie of taking a collection of patient's gene lab panel 
+and returns the corresponding drug selection or dosing guideline recommendation based on a patient's gene alleles
 
-- [csv-to-json.js](https://raw.githubusercontent.com/kgrid-demos/cpic-kit/blob/master/cli-client/csv-to-json.js) - takes in csv and outputs JSON.  example of a possible extract from a EHR/EMR
-- [cli-client.js](https://github.com/kgrid-demos/cpic-kit/blob/master/cli-client/cli-client.js)  - takes in multiple patient clinical lab reports (genotype and diplotype) and uses the CPIC objects 
-to determine a patient’s predicted metabolizer phenotype and therapeutic recommendations for a set of drugs.
-- [json-to-csv.js](https://github.com/kgrid-demos/cpic-kit/blob/master/cli-client/json-to-csv.js)  - takes the recommendation output of cli-client.js and renders it in csv format
 
-#### JSON Patient Panel Input and Output
-Takes in multiple patient clinical lab reports in the form of json
 
+Example of patient's gene lab panel 
 ```bash
-cat cli-client/panel.json | npm run cpic
+{
+    "patient": {
+        "name": "Hank Hill",
+        "id": "1"
+    },
+    "diplotype": {
+      "CYP2C19": "*1/*11",
+      "CYP2C9": "",
+      "CYP2D6": "*3/*3",
+      "CYP3A5": "",
+      "HLA-B": "*1/*1",
+      "SLCO1B1": "",
+      "TPMT": "",
+      "UGT1A1": "*1/*1"
+    },
+    "prescriptions": "atazanavir codeine abacavir"
+  }
+}
 ```
 
-To have the script output to a file use the following command:
+Example of a patient's recommendation output we would expect to get in return
+```json
+
+ {
+    "patient": {
+        "name": "Hank Hill",
+        "id": "1"
+    },
+    "time": "10/12/2018, 2:43:15 PM",
+    "recommendations": [
+        {
+            "type": "CPIC Recommendation",
+            "drug": "Atazanavir",
+            "genes": {
+                "UGT1A1": {
+                    "diplotype": "*1/*1",
+                    "phenotype": "normal metabolizer"
+                }
+            },
+            "recommendation": {
+                "implication": "Reference UGT1A1 activity; very low likelihood of bilirubin-related discontinuation of atazanavir.",
+                "content": "There is no need to avoid prescribing of atazanavir based on UGT1A1 genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patient?s genotype makes this unlikely (less than about a 1 in 20 chance of stopping atazanavir because of jaundice).",
+                "classification": "Strong"
+            }
+        },
+        {
+            "type": "CPIC Recommendation",
+            "drug": "Codeine",
+            "genes": {
+                "CYP2D6": {
+                    "diplotype": "*3/*3",
+                    "phenotype": "poor metabolizer"
+                }
+            },
+            "recommendation": {
+                "implication": "Greatly reduced morphine formation following codeine administration, leading to insufficient pain relief. ",
+                "content": "Avoid codeine use due to lack of efficacy. Alternatives that are not affected by this CYP2D6 phenotype include morphine and nonopioid analgesics. Tramadol and, to a lesser extent, hydrocodone and oxycodone are not good alternatives because their metabolism is affected by CYP2D6 activity; these agents should be avoided",
+                "classification": "Strong"
+            }
+        },
+        {
+            "type": "CPIC Recommendation",
+            "drug": "abacavir",
+            "genes": {
+                "HLA-B": {
+                    "diplotype": "*1/*1",
+                    "phenotype": ""
+                }
+            },
+            "recommendation": {
+                "implication": "Low or reduced risk of abacavir hypersensitivity",
+                "content": "abacavir: Use abacavir per standard dosing guidelines",
+                "classification": "Strong"
+            }
+        }
+    }
+
+```
+
+We have created a sample json panel file (_cli-client/panel.json_) with several patients to demonstrate the batch capability.
+The following example passing in the example panel to a node script which takes the patient's gene panel
+information and using the cpic services constructs a set of recommendation for that patient.  
+The recommendation written out the _recommendation.json_ file  
 
 ```bash
-cat cli-client/panel.json | npm run cpic > output.json
+cat cli-client/panel.json | node cli-client/cli-client.js > recommendations.json
 ```
 
 #### CSV Patient Panel Input and CSV Output
