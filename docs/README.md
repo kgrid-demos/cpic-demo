@@ -112,7 +112,9 @@ Note:
 The Batch Command Line demos are capablie of taking a collection of patient's gene lab panel 
 and returns the corresponding drug selection or dosing guideline recommendation based on a patient's gene alleles
 
-
+                                              Process Flow
+                                          --------------------
+          Patient Gene Lab Panel ---->  CPIC Recommendation Process ----> CPIC Recommendation 
 
 Example of patient's gene lab panel 
 ```bash
@@ -136,7 +138,7 @@ Example of patient's gene lab panel
 }
 ```
 
-Example of a patient's recommendation output we would expect to get in return
+Example of a patient's CPIC recommendation output we would expect to get in return
 ```json
 
  {
@@ -200,8 +202,14 @@ The following example passing in the example panel to a node script which takes 
 information and using the cpic services constructs a set of recommendation for that patient.  
 The recommendation written out the _recommendation.json_ file  
 
+Mac/Unix
 ```bash
 cat cli-client/panel.json | node cli-client/cli-client.js > recommendations.json
+```
+
+Windows
+```bash
+type cli-client/panel.json | node cli-client/cli-client.js > recommendations.json
 ```
 
 #### CSV Patient Panel Input and CSV Output
