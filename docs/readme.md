@@ -112,9 +112,9 @@ Note:
 The Batch Command Line demos are capablie of taking a collection of patient's gene lab panel 
 and returns the corresponding drug selection or dosing guideline recommendation based on a patient's gene alleles
 
-                                              Process Flow
-                                          --------------------
-          Patient Gene Lab Panel ---->  CPIC Recommendation Process ----> CPIC Recommendation 
+                                          Process Flow
+                                     --------------------
+    Patient Gene Lab Panel -->  CPIC Recommendation Process --> CPIC Recommendation 
 
 Example of patient's gene lab panel 
 ```bash
@@ -212,24 +212,6 @@ Windows
 type cli-client/panel.json | node cli-client/cli-client.js > recommendations.json
 ```
 
-#### CSV Patient Panel Input and CSV Output
-Here we use all three scripts to take a 
-1. multiple patient clinical lab report in a csv format convert and convert to json
-1. run the json multiple patient clinical lab report through the CPIC recommendation process
-1. add the recommendation information to the csv 
-
-(_Note: a single patient can have several 
-recommendations, each recommendation is represent as a new row for the particular patient 
-in the cvs file_)
-
-Here is the pipeline command:
-
-```bash
-cat cli-client/panel.csv | \
-node cli-client/csv-to-json.js |\
-node cli-client/cli-client.js |\
-node cli-client/json-to-csv.js > cli-client/output.csv
-```
 
 ### Local KGrid Library
 
