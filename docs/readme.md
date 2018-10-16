@@ -109,14 +109,14 @@ Note:
 
 
 ### Batch Command Line Demo
-The Batch Command Line demos showcase an integration scenario.  The process consumes a collection 
-of patient's gene lab panel and returns the corresponding drug selection or dosing guideline 
+The Batch Command Line demos showcase an integration scenario.  The process consumes a collection
+of patient's gene lab panel and returns the corresponding drug selection or dosing guideline
 recommendation based on a patient's gene alleles
 
 Below we show examples of the inputs and outputs of this process
 
-#### Gene Lab Panel 
-Input to the recommendation process is a patient gene lab panel 
+#### Gene Lab Panel
+Input to the recommendation process is a patient gene lab panel
 
 ```json
 {
@@ -139,7 +139,7 @@ Input to the recommendation process is a patient gene lab panel
 }
 ```
 #### CPIC Recommendation
-The output of the recommendation process is a patient's CPIC Recommendation 
+The output of the recommendation process is a patient's CPIC Recommendation
 ```json
  {
   "patient": {
@@ -193,13 +193,13 @@ The output of the recommendation process is a patient's CPIC Recommendation
             "classification": "Strong"
         }
     }
-  }
+  ]
 }
 ```
 
-We have created a sample json panel file (_cli-client/panel.json_) with several patients to 
-demonstrate the batch capability.  The following example passing in the example panel to a node 
-script which takes the patient's gene panel information and using the cpic services constructs 
+We have created a sample json panel file (_cli-client/panel.json_) with several patients to
+demonstrate the batch capability.  The following example passing in the example panel to a node
+script which takes the patient's gene panel information and using the cpic services constructs
 a set of recommendation for that patient.  The recommendation written out the _recommendation.json_ file  
 
 Mac/Unix
@@ -222,10 +222,10 @@ and outgoing information . that takes uses CSV formats instead of JSON.
 The pipeline consists of the following steps:
 1. patient clinical lab report in a CSV format converted into JSON format
 1. run CPIC recommendation process
-1. format the recommendation output from JSON to the CSV 
+1. format the recommendation output from JSON to the CSV
 
 ::: tip
-Single patient can have several recommendations, each recommendation is represent as a new row for 
+Single patient can have several recommendations, each recommendation is represent as a new row for
 the particular patient in the CSV file
 :::
 

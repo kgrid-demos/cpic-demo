@@ -1,6 +1,6 @@
 @echo off
 
-rmdir /s /q dist
+rd /s /q dist
 mkdir dist\cpic-kit
 dir
 xcopy  package.json dist\cpic-kit
