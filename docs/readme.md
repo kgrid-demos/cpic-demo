@@ -82,7 +82,7 @@ Once started you can navigate to the Web and Command Line Demo clients as well a
  KGrid Library and KGrid Activator.
 
  1. [Web Demo Client](#web-demo)
- 1. [Command Line Demo Client](#command-line-demo)
+ 1. [Command Line Demo Client](#batch-command-line-demo)
  1. [KGrid Library](#local-kgrid-library)
  1. [KGrid Activator](#local-kgrid-activator)
 
