@@ -92,7 +92,7 @@ function aggregateResults(patient, patientRecommendations) {
     "time": currentTime,
     "recommendations": patientRecommendations
   };
-  results.push(patientResult);
+  return new Promise(resolve => {results.push(patientResult);});
 }
 
 function generatePhentotypes(diplotypeObjectMap, diplotypePanel) {

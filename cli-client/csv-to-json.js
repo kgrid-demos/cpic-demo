@@ -9,6 +9,6 @@ function transformToJSON(input) {
   csvtojson()
   .fromString(input)
   .then(json => {
-    console.log(JSON.stringify(json));
+    console.log(JSON.stringify(json, null, 4));
   });
 }
