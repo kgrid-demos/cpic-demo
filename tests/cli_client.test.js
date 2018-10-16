@@ -3,7 +3,7 @@ shell.cd('cli-client')
 describe('smoke test cpic cli client', () => {
   test('simple json panel', ()  => {
 
-     var cli = shell.cat("panel.json").exec('node cli-client.js ', {silent:true});
+     var cli = shell.cat("panel.json").exec('node cpic-recommendation.js ', {silent:true});
 
      expect(cli.stderr).toBe("");
 
@@ -40,7 +40,7 @@ describe('smoke test cpic cli client', () => {
 
   test('simple csv panel', ()  => {
 
-    var cli = shell.cat("panel.csv").exec(' node csv-to-json.js | node cli-client.js', {silent:true});
+    var cli = shell.cat("panel.csv").exec(' node csv-to-json.js | node cpic-recommendation.js', {silent:true});
 
     expect(cli.stderr).toBe("");
 
@@ -66,7 +66,7 @@ describe('smoke test cpic cli client', () => {
 
   test('simple csv panel', ()  => {
 
-    var cli = shell.cat('panel.csv').exec( ' node csv-to-json.js | node cli-client.js | node json-to-csv.js', {silent:true});
+    var cli = shell.cat('panel.csv').exec( ' node csv-to-json.js | node cpic-recommendation.js | node json-to-csv.js', {silent:true});
 
     expect(cli.stderr).toBe("");
 
