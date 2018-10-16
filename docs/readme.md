@@ -109,14 +109,15 @@ Note:
 
 
 ### Batch Command Line Demo
-The Batch Command Line demos are capablie of taking a collection of patient's gene lab panel 
-and returns the corresponding drug selection or dosing guideline recommendation based on a patient's gene alleles
+The Batch Command Line demos showcase an integration scenario.  The process consumes a collection 
+of patient's gene lab panel and returns the corresponding drug selection or dosing guideline 
+recommendation based on a patient's gene alleles
 
-                                          Process Flow
-                                     --------------------
-    Patient Gene Lab Panel -->  CPIC Recommendation Process --> CPIC Recommendation 
+Below we show examples of the inputs and outputs of this process
 
-Example of patient's gene lab panel 
+#### Gene Lab Panel 
+Inout to the recommendation engine is a patient's gene lab panel 
+
 ```bash
 {
     "patient": {
@@ -137,8 +138,8 @@ Example of patient's gene lab panel
   }
 }
 ```
-
-Example of a patient's CPIC recommendation output we would expect to get in return
+#### CPIC Recommendation
+The out of the recommendation engine is a patient's CPIC Recommendation 
 ```json
 
  {
@@ -197,21 +198,56 @@ Example of a patient's CPIC recommendation output we would expect to get in retu
 
 ```
 
-We have created a sample json panel file (_cli-client/panel.json_) with several patients to demonstrate the batch capability.
-The following example passing in the example panel to a node script which takes the patient's gene panel
-information and using the cpic services constructs a set of recommendation for that patient.  
-The recommendation written out the _recommendation.json_ file  
+We have created a sample json panel file (_cli-client/panel.json_) with several patients to 
+demonstrate the batch capability.  The following example passing in the example panel to a node 
+script which takes the patient's gene panel information and using the cpic services constructs 
+a set of recommendation for that patient.  The recommendation written out the _recommendation.json_ file  
 
 Mac/Unix
 ```bash
-cat cli-client/panel.json | node cli-client/cli-client.js > recommendations.json
+cat cli-client/panel.json | node cli-client/cpic-recommendation.js > recommendations.json
 ```
 
 Windows
 ```bash
-type cli-client/panel.json | node cli-client/cli-client.js > recommendations.json
+type cli-client/panel.json | node cli-client/cpic-recommendation.js > recommendations.json
 ```
 
+
+### CSV Input/Output Batch Command Line Demo
+
+In this example we create we demonstrate the ablity to create pipeline processes around the basic
+CPIC Recommendation process.  In this case these additional processes handle formatting of the incoming
+and outgoing information . that takes uses CSV formats instead of JSON.
+
+The pipeline consists of the following steps:
+1. patient clinical lab report in a CSV format converted into JSON format
+1. run CPIC recommendation process
+1. format the recommendation output from JSON to the CSV 
+
+::: tip
+Single patient can have several recommendations, each recommendation is represent as a new row for 
+the particular patient in the CSV file
+:::
+
+
+Here is the pipeline command:
+
+Unix/Mac
+```bash
+cat cli-client/panel.csv | \
+node cli-client/csv-to-json.js |\
+node cli-client/cpic-recommendation.js |\
+node cli-client/json-to-csv.js > recommendation.csv
+```
+
+Windows
+```bash
+type cli-client/panel.csv | \
+node cli-client/csv-to-json.js |\
+node cli-client/cpic-recommendation.js |\
+node cli-client/json-to-csv.js > recommendation.csv
+```
 
 ### Local KGrid Library
 

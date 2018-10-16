@@ -4,7 +4,7 @@
   "description": "CPIC KGrid Kit",
   "main": " ",
   "bin": {
-    "cpic": "cli-client/cli-client.js"
+    "cpic": "cli-client/cpic-recommendation.js"
   },
   "scripts": {
     "postinstall": "node scripts/clean.js && node scripts/kgridInstall.js",
@@ -16,7 +16,6 @@
     "test:web": "testcafe chrome:headless web/test/webdemotest.js",
     "test": "npm run test:postman && npm run test:cli && npm run test:web ",
     "package": "scripty",
-    "cpic": "node cli-client/cli-client.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
