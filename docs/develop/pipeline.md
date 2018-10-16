@@ -2,7 +2,7 @@
 
 # Pipeline Batch Command Line Demo
 
-In this example we demonstrate the ability to create pipeline processes around the 
+In this example we demonstrate the ability to create pipeline processes around the
 CPIC Recommendation process.  In this case these additional processes handle formatting of the CVS incoming
 and outgoing information.
 
@@ -27,9 +27,6 @@ node cli-client/json-to-csv.js > recommendation.csv
 ```
 
 Windows
-```bash
-type cli-client/panel.csv | \
-node cli-client/csv-to-json.js |\
-node cli-client/cpic-recommendation.js |\
-node cli-client/json-to-csv.js > recommendation.csv
+```
+type cli-client\panel.csv | node cli-client\csv-to-json.js | node cli-client\cpic-recommendation.js | node cli-client\json-to-csv.js > recommendation.csv
 ```

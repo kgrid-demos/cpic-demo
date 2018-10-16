@@ -208,8 +208,8 @@ cat cli-client/panel.json | node cli-client/cpic-recommendation.js > recommendat
 ```
 
 Windows
-```bash
-type cli-client/panel.json | node cli-client/cpic-recommendation.js > recommendations.json
+```
+type cli-client\panel.json | node cli-client\cpic-recommendation.js > recommendations.json
 ```
 
 ### Local KGrid Library
