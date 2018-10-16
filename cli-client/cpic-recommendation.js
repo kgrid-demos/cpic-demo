@@ -31,19 +31,22 @@ program
 readStdIn().then(async (input) => {
   var data = JSON.parse(input);
   var batches = Math.ceil(data.length / batchSize);
-  for (var currentBatch = 0; currentBatch <= batches; currentBatch++) {
-    var batch = await data.slice(batchSize * currentBatch, batchSize * (currentBatch + 1));
+  for (var currentBatch = 0; currentBatch < batches; currentBatch++) {
+    var batch = data.slice(batchSize * currentBatch, batchSize * (currentBatch + 1));
     // Throttling with setTimeout
     await new Promise(resolve => {
       setTimeout(() => resolve(processPatientData(batch)), batchTiming)
     });
   }
-  await console.log(JSON.stringify(results, null, 4));
+  console.log(JSON.stringify(results, null, 4));
 });
 
-function processPatientData (dataBatch) {
+async function processPatientData (dataBatch) {
 
-  dataBatch.forEach(async function (patientData) {
+  var count=dataBatch.length
+  for(var i=0; i<count;i++){
+    // dataBatch.forEach(async function (patientData) {
+    var patientData = dataBatch[i]
 
     var patientRecommendations = [];
 
@@ -73,7 +76,7 @@ function processPatientData (dataBatch) {
         console.error(error.message);
       }
     }
-  });
+  };
 }
 
 function postJsonRequest(path, data) {
@@ -154,4 +157,3 @@ function generateDrugRecs(rxObj, phenotypePanel, patientRecommendations) {
     console.error(error);
   });
 }
-
