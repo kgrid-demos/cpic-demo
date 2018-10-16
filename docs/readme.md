@@ -116,9 +116,9 @@ recommendation based on a patient's gene alleles
 Below we show examples of the inputs and outputs of this process
 
 #### Gene Lab Panel 
-Inout to the recommendation engine is a patient's gene lab panel 
+Input to the recommendation process is a patient gene lab panel 
 
-```bash
+```json
 {
     "patient": {
         "name": "Hank Hill",
@@ -139,63 +139,62 @@ Inout to the recommendation engine is a patient's gene lab panel
 }
 ```
 #### CPIC Recommendation
-The out of the recommendation engine is a patient's CPIC Recommendation 
+The output of the recommendation process is a patient's CPIC Recommendation 
 ```json
-
  {
-    "patient": {
-        "name": "Hank Hill",
-        "id": "1"
+  "patient": {
+    "name": "Hank Hill",
+    "id": "1"
+  },
+  "time": "10/12/2018, 2:43:15 PM",
+  "recommendations": [
+    {
+        "type": "CPIC Recommendation",
+        "drug": "Atazanavir",
+        "genes": {
+            "UGT1A1": {
+                "diplotype": "*1/*1",
+                "phenotype": "normal metabolizer"
+            }
+        },
+        "recommendation": {
+            "implication": "Reference UGT1A1 activity; very low likelihood of bilirubin-related discontinuation of atazanavir.",
+            "content": "There is no need to avoid prescribing of atazanavir based on UGT1A1 genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patient?s genotype makes this unlikely (less than about a 1 in 20 chance of stopping atazanavir because of jaundice).",
+            "classification": "Strong"
+        }
     },
-    "time": "10/12/2018, 2:43:15 PM",
-    "recommendations": [
-        {
-            "type": "CPIC Recommendation",
-            "drug": "Atazanavir",
-            "genes": {
-                "UGT1A1": {
-                    "diplotype": "*1/*1",
-                    "phenotype": "normal metabolizer"
-                }
-            },
-            "recommendation": {
-                "implication": "Reference UGT1A1 activity; very low likelihood of bilirubin-related discontinuation of atazanavir.",
-                "content": "There is no need to avoid prescribing of atazanavir based on UGT1A1 genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin), but that this patient?s genotype makes this unlikely (less than about a 1 in 20 chance of stopping atazanavir because of jaundice).",
-                "classification": "Strong"
+    {
+        "type": "CPIC Recommendation",
+        "drug": "Codeine",
+        "genes": {
+            "CYP2D6": {
+                "diplotype": "*3/*3",
+                "phenotype": "poor metabolizer"
             }
         },
-        {
-            "type": "CPIC Recommendation",
-            "drug": "Codeine",
-            "genes": {
-                "CYP2D6": {
-                    "diplotype": "*3/*3",
-                    "phenotype": "poor metabolizer"
-                }
-            },
-            "recommendation": {
-                "implication": "Greatly reduced morphine formation following codeine administration, leading to insufficient pain relief. ",
-                "content": "Avoid codeine use due to lack of efficacy. Alternatives that are not affected by this CYP2D6 phenotype include morphine and nonopioid analgesics. Tramadol and, to a lesser extent, hydrocodone and oxycodone are not good alternatives because their metabolism is affected by CYP2D6 activity; these agents should be avoided",
-                "classification": "Strong"
+        "recommendation": {
+            "implication": "Greatly reduced morphine formation following codeine administration, leading to insufficient pain relief. ",
+            "content": "Avoid codeine use due to lack of efficacy. Alternatives that are not affected by this CYP2D6 phenotype include morphine and nonopioid analgesics. Tramadol and, to a lesser extent, hydrocodone and oxycodone are not good alternatives because their metabolism is affected by CYP2D6 activity; these agents should be avoided",
+            "classification": "Strong"
+        }
+    },
+    {
+        "type": "CPIC Recommendation",
+        "drug": "abacavir",
+        "genes": {
+            "HLA-B": {
+                "diplotype": "*1/*1",
+                "phenotype": ""
             }
         },
-        {
-            "type": "CPIC Recommendation",
-            "drug": "abacavir",
-            "genes": {
-                "HLA-B": {
-                    "diplotype": "*1/*1",
-                    "phenotype": ""
-                }
-            },
-            "recommendation": {
-                "implication": "Low or reduced risk of abacavir hypersensitivity",
-                "content": "abacavir: Use abacavir per standard dosing guidelines",
-                "classification": "Strong"
-            }
+        "recommendation": {
+            "implication": "Low or reduced risk of abacavir hypersensitivity",
+            "content": "abacavir: Use abacavir per standard dosing guidelines",
+            "classification": "Strong"
         }
     }
-
+  }
+}
 ```
 
 We have created a sample json panel file (_cli-client/panel.json_) with several patients to 
@@ -214,7 +213,7 @@ type cli-client/panel.json | node cli-client/cpic-recommendation.js > recommenda
 ```
 
 
-### CSV Input/Output Batch Command Line Demo
+### Pipeline Batch Command Line Demo
 
 In this example we create we demonstrate the ablity to create pipeline processes around the basic
 CPIC Recommendation process.  In this case these additional processes handle formatting of the incoming
