@@ -215,20 +215,31 @@ type cli-client/panel.json | node cli-client/cpic-recommendation.js > recommenda
 
 ### Pipeline Batch Command Line Demo
 
-In this example we create we demonstrate the ablity to create pipeline processes around the basic
-CPIC Recommendation process.  In this case these additional processes handle formatting of the incoming
-and outgoing information . that takes uses CSV formats instead of JSON.
+In this example we demonstrate the ability to create pipeline processes around the 
+CPIC Recommendation process.  In this case these additional processes handle formatting of the CVS incoming
+and outgoing information.
 
 The pipeline consists of the following steps:
 1. patient clinical lab report in a CSV format converted into JSON format
 1. run CPIC recommendation process
 1. format the recommendation output from JSON to the CSV
 
+*Example CSV input*
+
+|patient.name| patient.id| diplotype.CYP2C19| diplotype.CYP2C9| diplotype.CYP2D6| diplotype.CYP3A5| diplotype.HLA-B| diplotype.SLCO1B1| diplotype.TPMT| diplotype.UGT1A1| prescriptions|
+Hank Hill|1| *1/*11|| *3/*3||*1/*1|||*1/*1|atazanavir codeine abacavir
+
+*Example CSV Output*
+|patient.name|patient.id|time|recommendations.type|recommendations.drug|recommendations.genes|recommendations.recommendation.implication|recommendations.recommendation.content|recommendations.recommendation.classification|
+|Hank Hill|1|10/10/2018 4:23:26 PM|CPIC Recommendation|Atazanavir|{|UGT1A1|:{|diplotype|:|*1/*1||phenotype|:|normal metabolizer|}}|Reference UGT1A1 activity; very low likelihood of bilirubin-related discontinuation of atazanavir.|There is no need to avoid prescribing of atazanavir based on UGT1A1 genetic test result. Inform the patient that some patients stop atazanavir because of jaundice (yellow eyes and skin) but that this patient?s genotype makes this unlikely (less than about a 1 in 20 chance of stopping atazanavir because of jaundice).|Strong|
+|Hank Hill|1|10/10/2018 4:23:26 PM|CPIC Recommendation|Codeine|{|CYP2D6|:{|diplotype|:|*3/*3||phenotype|:|poor metabolizer|}}|Greatly reduced morphine formation following codeine administration leading to insufficient pain relief. |Avoid codeine use due to lack of efficacy. Alternatives that are not affected by this CYP2D6 phenotype include morphine and nonopioid analgesics. Tramadol and to a lesser extent hydrocodone and oxycodone are not good alternatives because their metabolism is affected by CYP2D6 activity; these agents should be avoided|Strong|
+|Hank Hill|1|10/10/2018 4:23:26 PM|CPIC Recommendation|abacavir|{|HLA-B|:{|diplotype|:|*1/*1||phenotype|:||}}|Low or reduced risk of abacavir hypersensitivity|abacavir: Use abacavir per standard dosing guidelines|Strong|
+
+
 ::: tip
 Single patient can have several recommendations, each recommendation is represent as a new row for
 the particular patient in the CSV file
 :::
-
 
 Here is the pipeline command:
 
