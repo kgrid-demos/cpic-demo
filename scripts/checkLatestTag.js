@@ -2,7 +2,6 @@
 const download = require('download');
 const request = require('request');
 const jp = require('jsonpath');
-const fileExists = require('file-exists');
 
 module.exports = {
 

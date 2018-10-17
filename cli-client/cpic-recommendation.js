@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 const program = require('commander');
 const axios = require('axios');
-const fs = require('fs-extra');
-const exists = require('fs').existsSync;
 const csvtojson = require('csvtojson');
 const readStdIn = require('./read-std-in');
 

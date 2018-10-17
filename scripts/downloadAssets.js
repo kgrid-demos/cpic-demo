@@ -2,7 +2,8 @@
 const download = require('download');
 const request = require('request');
 const jp = require('jsonpath');
-const fileExists = require('file-exists');
+// const fileExists = require('file-exists');
+const fs = require('fs-extra')
 
 const filter = '$.assets[*].browser_download_url'
 
@@ -31,7 +32,7 @@ module.exports = {
           artifact.name= asset.name
           artifact.filename=filename
           artifact.tag_name=tag_name
-          fileExists(asset.destination + "/" + filename).then(exists => {
+          fs.pathExists(asset.destination + "/" + filename).then(exists => {
             if (exists) {
               console.log("Already have " + filename);
               resolve(artifact);
