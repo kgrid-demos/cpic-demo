@@ -6,17 +6,14 @@ fixture `CPIC KIT`
     .page `http://localhost:8083`;
 
 // const page = new Page();
-const settingModal       = Selector('#setting')
 const settingIcon        = Selector('#settingicon')
 const patientOne        = Selector('input[type=radio][value="0"]+label');
-const diplotype          = Selector('#CYP2D6');
-
 const recList = Selector('#reclist')
 
 test('Gene Panel', async t => {
+    const diplotypeExists   = Selector('#CYP2D6').exists;
     await t
-
-      .expect(diplotype.innerText).eql('CYP2D6');
+      .expect(diplotypeExists).ok();
 });
 
 test('Setting', async t => {
