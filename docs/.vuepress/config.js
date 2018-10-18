@@ -5,6 +5,7 @@ module.exports = {
     repo: 'kgrid-demos/cpic-kit',
     lastUpdated: 'Last Updated',
     nav: [
+      { text: 'KGrid.org', link: 'https://kgrid.org' },
       { text: 'Guide', link: '/' },
       { text: 'Develop', link: '/develop/' },
       { text: 'CPIC Collection', link: 'https://kgrid-objects.github.io/cpic-collection'},
