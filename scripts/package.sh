@@ -6,6 +6,7 @@ mkdir -p dist/cpic-kit
 
 cp -r package.json dist/cpic-kit
 cp -f package-lock.json dist/cpic-kit
+cp -f cpic-kit-quick-start.pdf  dist/cpic-kit
 cp -r  scripts dist/cpic-kit
 cp -r  scriptswin dist/cpic-kit
 cp -r  tests dist/cpic-kit
