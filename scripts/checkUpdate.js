@@ -50,6 +50,19 @@ Promise.all(requests).then(function (values) {
   if(componentsUpdated){
     console.log("* A new version of one or more KGrid components are available. You can run `npm install` to update.\n")
   }
-
-
+})
+.catch(error=>{
+  console.log("\n       KGrid Assets Status      ");
+  console.log("================================")
+  Object.keys(pkg.githubAssets).forEach(function(k) {
+    var assetStatus ={}
+    assetStatus[k]={}
+    assetStatus[k].currentTag  = pkg.githubAssets[k].tag_name
+    console.log(prettyjson.render(assetStatus, {noColor:false, keysColor: 'green'}))
+  })
+  var assetStatus ={'cpic-kit':{}}
+  assetStatus['cpic-kit'].currentTag= kitAsset.tag_name
+    console.log(prettyjson.render(assetStatus, {noColor:false, keysColor: 'green'}))
+    console.log("================================\n")
+    console.log("Connection is needed to check if you have installed the latest releases of KGrid components and CPIC-Kit.\n")
 });
