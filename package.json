@@ -32,7 +32,7 @@
     "jest": "^23.6.0",
     "json2csv": "^4.2.1",
     "jsonpath": "^1.0.0",
-    "newman": "^4.1.0",
+    "newman": "^4.3.1",
     "prettyjson": "^1.2.1",
     "request": "^2.88.0",
     "scripty": "^1.7.2",
@@ -53,17 +53,17 @@
     "library": {
       "url": "https://api.github.com/repos/kgrid/kgrid-library",
       "destination": "library",
-      "tag_name": "1.0.9"
+      "tag_name": "1.0.10-rc6"
     },
     "activator": {
       "url": "https://api.github.com/repos/kgrid/kgrid-activator",
       "destination": "activator",
-      "tag_name": "1.0.3"
+      "tag_name": "1.0.4-rc11"
     },
     "cpic-kos": {
       "url": "https://api.github.com/repos/kgrid-objects/cpic-collection",
       "destination": "dist",
-      "tag_name": "1.5.2"
+      "tag_name": "1.5.3-rc1"
     }
   },
   "engines": {

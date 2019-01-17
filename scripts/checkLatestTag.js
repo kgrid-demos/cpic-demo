@@ -8,7 +8,7 @@ module.exports = {
   checkLatestTag: function(asset){
 
     var options = {
-      url: asset.url+"/releases/latest",
+      url: asset.url+"/releases/tags/"+asset.tag_name,
       headers: {
         'User-Agent': 'request'
       }

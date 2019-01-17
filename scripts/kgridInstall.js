@@ -11,7 +11,7 @@ let requests = Object.keys(pkg.githubAssets).map(
     key => {
       var asset = JSON.parse(JSON.stringify(pkg.githubAssets[key]))
       asset.name=key
-      // console.log("key===>"+JSON.stringify(asset))
+      console.log("key===>"+JSON.stringify(asset))
       return download.downloadAssets(asset)
     });
 
