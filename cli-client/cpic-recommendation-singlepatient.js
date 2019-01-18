@@ -4,8 +4,8 @@ const axios = require('axios');
 const csvtojson = require('csvtojson');
 const readStdIn = require('./read-std-in');
 
-const genophenokolistPath = '/99999/fk4qj7sz2t/v0.0.4/genophenokolist';
-const druglistPath = '/99999/fk4qj7sz2s/v0.0.5/druglist';
+const genophenokolistPath = '/99999/fk4qj7sz2t/v0.1.0/genophenokolist';
+const druglistPath = '/99999/fk4qj7sz2s/v0.1.0/druglist';
 const stdin = process.stdin;
 var host;
 var results = [];
