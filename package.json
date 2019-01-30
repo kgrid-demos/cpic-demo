@@ -54,17 +54,17 @@
     "library": {
       "url": "https://api.github.com/repos/kgrid/kgrid-library",
       "destination": "library",
-      "tag_name": "1.0.10-rc8"
+      "tag_name": "1.0.10"
     },
     "activator": {
       "url": "https://api.github.com/repos/kgrid/kgrid-activator",
       "destination": "activator",
-      "tag_name": "1.0.4-rc15"
+      "tag_name": "1.0.4"
     },
     "cpic-kos": {
       "url": "https://api.github.com/repos/kgrid-objects/cpic-collection",
       "destination": "dist",
-      "tag_name": "1.5.3-rc1"
+      "tag_name": "1.5.3"
     }
   },
   "engines": {
