@@ -45,8 +45,12 @@ jobs:
           if [ $RELEASE ]; then
              git config --global user.email "$GIT_USER_EMAIL"
              git config --global user.name "$GIT_USER_NAME"
-             git tag $RELEASE
+
              chmod 777 .circleci/vuepress_deploy.sh && .circleci/vuepress_deploy.sh
+
+             git tag $RELEASE
+             git push origin $RELEASE
+
           fi
 
     - store_artifacts:
