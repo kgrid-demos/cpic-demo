@@ -134,7 +134,7 @@ var demo = new Vue({
     },
     getdruglist: function () {
       return 	axios(
-        {	'url': this.baseUrl + this.druglookupko.id + this.druglookupko.endpoint,
+        {	'url': this.selectedactivator=='default'?this.baseUrl + this.druglookupko.id +'/v0.1.0'+ this.druglookupko.endpoint:this.baseUrl + this.druglookupko.id  +'/v0.2.0'+ this.druglookupko.endpoint,
           'method': 'POST',
           'headers': {
             'content-type': 'application/json',
@@ -145,7 +145,7 @@ var demo = new Vue({
     },
     getg2pkolist: function () {
       return 	axios(
- 												{	'url': this.baseUrl + this.genophenolookupko.id + this.genophenolookupko.endpoint,
+ 												{	'url': this.selectedactivator=='default'? this.baseUrl + this.genophenolookupko.id +'/v0.1.0'+ this.genophenolookupko.endpoint:this.baseUrl + this.genophenolookupko.id +'/v0.2.0'+ this.genophenolookupko.endpoint,
  												'method': 'POST',
  												'headers': {
  													'content-type': 'application/json',

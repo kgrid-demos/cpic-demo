@@ -2,9 +2,9 @@
   "shelf_url": "./shelf/",
   "library_url": "http://localhost:8081",
   "user_url": "./",
-  "activator_url":"http://localhost:8082",
-  "genophenolookupko":{"id":"/99999/fk4qj7sz2t/v0.1.0","endpoint":"/genophenokolist"},
-  "druglookupko":{"id":"/99999/fk4qj7sz2s/v0.1.0","endpoint":"/druglist"},
+  "activator_url":"http://localhost:8080",
+  "genophenolookupko":{"id":"/99999/fk4qj7sz2t","endpoint":"/genophenokolist"},
+  "druglookupko":{"id":"/99999/fk4qj7sz2s","endpoint":"/druglist"},
   "genopheno_endpoint":"/phenotype",
   "recommendation_endpoint":"/dosingrecommendation"
 }
