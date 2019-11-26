@@ -8,8 +8,7 @@
   },
   "scripts": {
     "test:cli": "jest",
-    "test:web": "testcafe chrome:headless web/test/webdemotest.js",
-    "test": "npm run test:cli && npm run test:web ",
+    "test": "npm run test:cli",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
@@ -30,8 +29,6 @@
     "shelljs": "^0.8.2"
   },
   "devDependencies": {
-    "testcafe": "^0.22.0",
-    "testcafe-reporter-xunit": "^2.1.0",
     "vuepress": "^0.14.4"
   },
   "engines": {

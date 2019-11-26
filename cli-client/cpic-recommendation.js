@@ -4,8 +4,8 @@ const axios = require('axios');
 const csvtojson = require('csvtojson');
 const readStdIn = require('./read-std-in');
 
-const genophenokolistPath = '/99999/fk4qj7sz2t/v0.1.0/genophenokolist';
-const druglistPath = '/99999/fk4qj7sz2s/v0.1.0/druglist';
+const genophenokolistPath = '/99999/fk4qj7sz2t/genophenokolist';
+const druglistPath = '/99999/fk4qj7sz2s/druglist';
 const batchSize = 50;
 const batchTiming = 500;
 var host;
@@ -16,7 +16,7 @@ program
   .version('0.1.0')
   .description('Use the CPIC toolkit to process panels of patient data')
   .arguments('[host]').action((hostArg) => {
-    host = hostArg || 'http://localhost:8082';
+    host = hostArg || 'http://localhost:8080';
   }).on('--help', function() {
     console.log('');
     console.log('Examples:');
