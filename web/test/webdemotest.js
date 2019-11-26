@@ -2,7 +2,7 @@
 import { Selector } from 'testcafe';
 
 
-fixture `CPIC KIT`
+fixture `CPIC Demo`
     .page `http://localhost:8083`;
 
 // const page = new Page();

@@ -20,4 +20,4 @@ git add -A
 git commit -m "Automated deployment to GitHub Pages"
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f https://${GITHUB_TOKEN}@github.com/kgrid-demos/cpic-kit.git master:gh-pages
+git push -f https://${GITHUB_TOKEN}@github.com/kgrid-demos/cpic-demo.git master:gh-pages

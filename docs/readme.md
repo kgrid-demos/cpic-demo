@@ -5,8 +5,8 @@ sidebarDepth: 2
 
 # CPIC Web Demo App Guide
 
-[![GitHub release](https://img.shields.io/github/release/kgrid-demos/cpic-kit.svg)](https://github.com/kgrid-demos/cpic-kit/releases/)
-[![CircleCI](https://circleci.com/gh/kgrid-demos/cpic-kit.svg?style=svg)](https://circleci.com/gh/kgrid-demos/cpic-kit)
+[![GitHub release](https://img.shields.io/github/release/kgrid-demos/cpic-demo.svg)](https://github.com/kgrid-demos/cpic-demo/releases/)
+[![CircleCI](https://circleci.com/gh/kgrid-demos/cpic-demo.svg?style=svg)](https://circleci.com/gh/kgrid-demos/cpic-demo)
 
 
 ## Introduction
@@ -37,7 +37,7 @@ Note:
   - Click on the app log, the log area will expand to show more details on the interactions with the connected KGrid activator.
 
 
-    <div style="text-align:center;"><button style='background-color:green; color:#fff;padding:16px 10px;font-size: 1.3em;'><a href='https://demo.kgrid.org/cpic-kit/web'  style='color:#fff;'>LAUNCH DEMO</a></button></div>
+    <div style="text-align:center;"><button style='background-color:green; color:#fff;padding:16px 10px;font-size: 1.3em;'><a href='https://demo.kgrid.org/cpic-demo/web'  style='color:#fff;'>LAUNCH DEMO</a></button></div>
 
 
 

@@ -31,11 +31,11 @@ jobs:
          command: npm install
 
     # - run:
-    #     name: Test CPIC Kit
+    #     name: Test CPIC Demo
     #     command: npm start && mkdir test-results && npm test
     #
     # - run:
-    #     name: Create CPIC Kit zip ready for deployment
+    #     name: Create CPIC Demo zip ready for deployment
     #     command: npm run package
 
     - run:
