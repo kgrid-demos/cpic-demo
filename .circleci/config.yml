@@ -27,17 +27,16 @@ jobs:
         command: java -version && node -v
 
     - run:
-         name: Install the CPIC Kit
+         name: Install dependencies
          command: npm install
 
-    - run:
-        name: Test CPIC Kit
-        command: npm start && mkdir test-results && npm test
-
-
-    - run:
-        name: Create CPIC Kit zip ready for deployment
-        command: npm run package
+    # - run:
+    #     name: Test CPIC Kit
+    #     command: npm start && mkdir test-results && npm test
+    #
+    # - run:
+    #     name: Create CPIC Kit zip ready for deployment
+    #     command: npm run package
 
     - run:
         name: Deploy VuePress GitHub Pages
@@ -54,7 +53,7 @@ jobs:
           fi
 
     - store_artifacts:
-          path: dist
+          path: docs/.vuepress/dist/app
 
     - store_test_results:
         path: test-results

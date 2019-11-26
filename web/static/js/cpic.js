@@ -49,15 +49,15 @@ var demo = new Vue({
   	return {
       currenturl:'',
       initdata: {},
-      activatorurl: {'local': 'http://localhost:8082', 'default': 'https://activator.kgrid.org', 'custom': ''},
+      activatorurl: {'local': 'http://localhost:8082', 'default': 'https://activator.kgrid.org', 'custom': 'https://kgrid-activator.herokuapp.com'},
       selectedactivator: 'default',
       activatorselection: 'default',
       options: [
           { text: 'Default', url: 'https://activator.kgrid.org', value: 'default' },
     			{ text: 'Local', url: 'http://localhost:8082', value: 'local' },
-          { text: 'Custom', url: '', value: 'custom'}
+          { text: 'Custom', url: 'https://kgrid-activator.herokuapp.com', value: 'custom'}
       ],
-      libraryurl:{'local': 'http://localhost:8081', 'default': 'https://library.kgrid.org', 'custom': ''},
+      libraryurl:{'local': 'http://localhost:8081', 'default': 'https://library.kgrid.org', 'custom': 'https://kgrid-library.herokuapp.com'},
       settingShow: false,
       autofillSelection: '',
       eventlog: [],
@@ -101,9 +101,9 @@ var demo = new Vue({
         self.activatorurl.local=config.data.activator_url
         self.options[1].url=config.data.activator_url
         self.currenturl=window.location.href
-        if(self.currenturl.includes('localhost')){
-          self.selectedactivator='local'
-        }
+        // if(self.currenturl.includes('localhost')){
+        self.selectedactivator='custom'
+        // }
         self.appendLog('app', 'Application Event - The Activator is set to '+self.baseUrl)
         axios.all([
           self.getdruglist,
