@@ -41,7 +41,6 @@ jobs:
     - run:
         name: Deploy VuePress GitHub Pages
         command: |
-          if [ $RELEASE ]; then
              git config --global user.email "$GIT_USER_EMAIL"
              git config --global user.name "$GIT_USER_NAME"
 
@@ -49,8 +48,6 @@ jobs:
 
              git tag $RELEASE
              git push origin $RELEASE
-
-          fi
 
     - store_artifacts:
           path: docs/.vuepress/dist/app

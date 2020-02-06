@@ -102,7 +102,7 @@ var demo = new Vue({
         self.options[1].url=config.data.activator_url
         self.currenturl=window.location.href
         // if(self.currenturl.includes('localhost')){
-        self.selectedactivator='custom'
+        self.selectedactivator='default'
         // }
         self.appendLog('app', 'Application Event - The Activator is set to '+self.baseUrl)
         axios.all([
@@ -134,7 +134,7 @@ var demo = new Vue({
     },
     getdruglist: function () {
       return 	axios(
-        {	'url': this.selectedactivator=='default'?this.baseUrl + this.druglookupko.id +'/v0.1.0'+ this.druglookupko.endpoint:this.baseUrl + this.druglookupko.id  +'/v0.2.0'+ this.druglookupko.endpoint,
+        {	'url': this.baseUrl + this.druglookupko.id  +'/v0.2.0'+ this.druglookupko.endpoint,
           'method': 'POST',
           'headers': {
             'content-type': 'application/json',
@@ -145,7 +145,7 @@ var demo = new Vue({
     },
     getg2pkolist: function () {
       return 	axios(
- 												{	'url': this.selectedactivator=='default'? this.baseUrl + this.genophenolookupko.id +'/v0.1.0'+ this.genophenolookupko.endpoint:this.baseUrl + this.genophenolookupko.id +'/v0.2.0'+ this.genophenolookupko.endpoint,
+ 												{	'url': this.baseUrl + this.genophenolookupko.id +'/v0.2.0'+ this.genophenolookupko.endpoint,
  												'method': 'POST',
  												'headers': {
  													'content-type': 'application/json',
