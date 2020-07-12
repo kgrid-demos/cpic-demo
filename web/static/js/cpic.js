@@ -49,15 +49,15 @@ var demo = new Vue({
   	return {
       currenturl:'',
       initdata: {},
-      activatorurl: {'local': 'http://localhost:8082', 'default': 'https://activator.kgrid.org', 'custom': 'https://kgrid-activator.herokuapp.com'},
+      activatorurl: {'local': 'http://localhost:8082', 'custom': 'https://activator.kgrid.org', 'default': 'https://kgrid-activator.herokuapp.com'},
       selectedactivator: 'default',
       activatorselection: 'default',
       options: [
-          { text: 'Default', url: 'https://activator.kgrid.org', value: 'default' },
+        { text: 'Default', url: 'https://kgrid-activator.herokuapp.com', value: 'default'},
     			{ text: 'Local', url: 'http://localhost:8082', value: 'local' },
-          { text: 'Custom', url: 'https://kgrid-activator.herokuapp.com', value: 'custom'}
+          { text: 'Custom', url: 'https://activator.kgrid.org', value: 'custom' }
       ],
-      libraryurl:{'local': 'http://localhost:8081', 'default': 'https://library.kgrid.org', 'custom': 'https://kgrid-library.herokuapp.com'},
+      libraryurl:{'local': 'http://localhost:8081', 'custom': 'https://library.kgrid.org', 'default': 'https://kgrid-library.herokuapp.com'},
       settingShow: false,
       autofillSelection: '',
       eventlog: [],
