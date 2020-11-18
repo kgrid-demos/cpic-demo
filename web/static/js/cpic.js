@@ -49,11 +49,11 @@ var demo = new Vue({
   	return {
       currenturl:'',
       initdata: {},
-      activatorurl: {'local': 'http://localhost:8082', 'default': 'https://activator.kgrid.org', 'custom': 'https://kgrid-activator.herokuapp.com'},
+      activatorurl: {'local': 'http://localhost:8082', 'default': 'https://activator-playground.herokuapp.com', 'custom': 'https://kgrid-activator.herokuapp.com'},
       selectedactivator: 'default',
       activatorselection: 'default',
       options: [
-        { text: 'Default', url: 'https://activator.kgrid.org', value: 'default' },
+        { text: 'Default', url: 'https://activator-playground.herokuapp.com', value: 'default' },
     			{ text: 'Local', url: 'http://localhost:8082', value: 'local' },
           { text: 'Custom', url: 'https://kgrid-activator.herokuapp.com', value: 'custom'},
       ],
@@ -115,6 +115,7 @@ var demo = new Vue({
            self.appendLog('app', 'K-GRID Service Response - Gene drug table returned from Knowledge Object ark:' + self.druglookupko.id)
            self.appendLog('app', 'Demo App is Ready. Choose a sample patient genetic panel or manually enter the diplotypes.')
            self.recommendationkolist = druglist.data.result
+           console.log(self.recommendationkolist)
            self.genophenokolist = genophenolist.data.result
            self.activatorReady=true
          })).catch(function (error) {
@@ -134,7 +135,7 @@ var demo = new Vue({
     },
     getdruglist: function () {
       return 	axios(
-        {	'url': this.baseUrl + this.druglookupko.id  +'/v0.2.0'+ this.druglookupko.endpoint,
+        {	'url': this.baseUrl + this.druglookupko.id  + this.druglookupko.endpoint,
           'method': 'POST',
           'headers': {
             'content-type': 'application/json',
@@ -145,7 +146,7 @@ var demo = new Vue({
     },
     getg2pkolist: function () {
       return 	axios(
- 												{	'url': this.baseUrl + this.genophenolookupko.id +'/v0.2.0'+ this.genophenolookupko.endpoint,
+ 												{	'url': this.baseUrl + this.genophenolookupko.id + this.genophenolookupko.endpoint,
  												'method': 'POST',
  												'headers': {
  													'content-type': 'application/json',
