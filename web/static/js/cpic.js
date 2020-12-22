@@ -49,11 +49,11 @@ var demo = new Vue({
   	return {
       currenturl:'',
       initdata: {},
-      activatorurl: {'local': 'http://localhost:8082', 'default': 'https://activator-playground.herokuapp.com', 'custom': 'https://kgrid-activator.herokuapp.com'},
+      activatorurl: {'local': 'http://localhost:8082', 'default': 'https://kgrid-activator-demo.herokuapp.com', 'custom': 'https://kgrid-activator.herokuapp.com'},
       selectedactivator: 'default',
       activatorselection: 'default',
       options: [
-        { text: 'Default', url: 'https://activator-playground.herokuapp.com', value: 'default' },
+        { text: 'Default', url: 'https://kgrid-activator-demo.herokuapp.com', value: 'default' },
     			{ text: 'Local', url: 'http://localhost:8082', value: 'local' },
           { text: 'Custom', url: 'https://kgrid-activator.herokuapp.com', value: 'custom'},
       ],
