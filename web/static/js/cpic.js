@@ -49,12 +49,12 @@ var demo = new Vue({
   	return {
       currenturl:'',
       initdata: {},
-      activatorurl: {'local': 'http://localhost:8082', 'default': 'https://kgrid-activator-demo.herokuapp.com', 'custom': 'https://kgrid-activator.herokuapp.com'},
-      selectedactivator: 'default',
-      activatorselection: 'default',
+      activatorurl: {'local': 'http://localhost:8080', 'default': 'https://kgrid-activator-demo.herokuapp.com', 'custom': 'https://kgrid-activator.herokuapp.com'},
+      selectedactivator: 'local',
+      activatorselection: 'local',
       options: [
         { text: 'Default', url: 'https://kgrid-activator-demo.herokuapp.com', value: 'default' },
-    			{ text: 'Local', url: 'http://localhost:8082', value: 'local' },
+    			{ text: 'Local', url: 'http://localhost:8080', value: 'local' },
           { text: 'Custom', url: 'https://kgrid-activator.herokuapp.com', value: 'custom'},
       ],
       libraryurl:{'local': 'http://localhost:8081', 'default': 'https://library.kgrid.org', 'custom': 'https://kgrid-library.herokuapp.com'},
@@ -102,7 +102,7 @@ var demo = new Vue({
         self.options[1].url=config.data.activator_url
         self.currenturl=window.location.href
         // if(self.currenturl.includes('localhost')){
-        self.selectedactivator='default'
+        self.selectedactivator='local'
         // }
         self.appendLog('app', 'Application Event - The Activator is set to '+self.baseUrl)
         axios.all([
@@ -135,25 +135,23 @@ var demo = new Vue({
     },
     getdruglist: function () {
       return 	axios(
-        {	'url': this.baseUrl + this.druglookupko.id  + this.druglookupko.endpoint,
-          'method': 'POST',
-          'headers': {
-            'content-type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
+        {	url: this.baseUrl + this.druglookupko.id  + this.druglookupko.endpoint,
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
           },
-          'data': this.listrequest.prescriptions
-										 })
+          data: this.listrequest.prescriptions
+				})
     },
     getg2pkolist: function () {
       return 	axios(
- 												{	'url': this.baseUrl + this.genophenolookupko.id + this.genophenolookupko.endpoint,
- 												'method': 'POST',
- 												'headers': {
- 													'content-type': 'application/json',
- 													'Access-Control-Allow-Origin': '*'
- 												},
- 												'data': this.listrequest.diplotype
- 										 })
+				{	url: this.baseUrl + this.genophenolookupko.id + this.genophenolookupko.endpoint,
+  				method: 'POST',
+  				headers: {
+  					'Content-Type': 'application/json'
+  				},
+  				data: this.listrequest.diplotype
+		    })
     },
     debouncegetdata: function () {
       return _.debounce(this.getdata, this.delay)
