@@ -98,8 +98,8 @@ var demo = new Vue({
         self.druglookupko = config.data.druglookupko
         self.genopheno_endpoint = config.data.genopheno_endpoint
         self.recommendation_endpoint = config.data.recommendation_endpoint
-        self.activatorurl.local=config.data.activator_url
-        self.options[1].url=config.data.activator_url
+        // self.activatorurl.local=config.data.activator_url
+        // self.options[1].url=config.data.activator_url
         self.currenturl=window.location.href
         // if(self.currenturl.includes('localhost')){
         self.selectedactivator='local'
