@@ -50,8 +50,8 @@ var demo = new Vue({
       currenturl:'',
       initdata: {},
       activatorurl: {'local': 'http://localhost:8080', 'default': 'https://kgrid-activator-demo.herokuapp.com', 'custom': 'https://kgrid-activator.herokuapp.com'},
-      selectedactivator: 'local',
-      activatorselection: 'local',
+      selectedactivator: 'default',
+      activatorselection: 'default',
       options: [
         { text: 'Default', url: 'https://kgrid-activator-demo.herokuapp.com', value: 'default' },
     			{ text: 'Local', url: 'http://localhost:8080', value: 'local' },
