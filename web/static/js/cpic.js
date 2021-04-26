@@ -102,7 +102,7 @@ var demo = new Vue({
         // self.options[1].url=config.data.activator_url
         self.currenturl=window.location.href
         // if(self.currenturl.includes('localhost')){
-        self.selectedactivator='local'
+        self.selectedactivator='default'
         // }
         self.appendLog('app', 'Application Event - The Activator is set to '+self.baseUrl)
         axios.all([
