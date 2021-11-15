@@ -10,7 +10,8 @@
     "test:cli": "jest",
     "test": "npm run test:cli",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "demo": "live-server web"
   },
   "author": "KGrid Team",
   "license": "MIT",
@@ -28,7 +29,8 @@
   },
   "devDependencies": {
     "jest": "^26.0.0",
-    "vuepress": "^1.8.1"
+    "vuepress": "^1.8.1",
+    "live-server": "^1.2.1"
   },
   "engines": {
     "node": ">= 10.0.0",

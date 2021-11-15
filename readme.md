@@ -5,3 +5,12 @@
 KGrid CPIC Demo includes both a single web application and a command-line batch client.
 
 Further details can be found at [https://demo.kgrid.org/cpic-demo/](https://demo.kgrid.org/cpic-demo/)
+
+### Developers
+
+To run the cpic-demo app
+```bash
+npm run demo
+```
+
+

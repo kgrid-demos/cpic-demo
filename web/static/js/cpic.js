@@ -37,7 +37,7 @@ Vue.component('recomtile', {
       return obj
     },
     objlink:function() {
-      return this.library_url+"/#/object/"+(this.recmodel.info.ko.identifier.replace("ark:","").substring(1).replace(new RegExp('/', 'g'),'%2F'))
+      return this.library_url+"/#/object/"+(this.recmodel.info.endpoint.identifier.replace("ark:","").substring(1).replace(new RegExp('/', 'g'),'%2F'))
     }
   }
 })
@@ -281,7 +281,7 @@ var demo = new Vue({
           var phenotype = r.data.result
           Object.keys(phenotype).forEach(function(key) {
             self.phenotypePanel[key] = JSON.parse(JSON.stringify(phenotype[key]))
-            self.appendLog('app', 'K-GRID Service Response - Phenotype result for ' + key + ' returned from ' + r.data.info.ko.identifier)
+            self.appendLog('app', 'K-GRID Service Response - Phenotype result for ' + key + ' returned from ' + r.data.info.endpoint.identifier)
           })
         })
       }).then(function () {
@@ -312,7 +312,7 @@ var demo = new Vue({
           var rec = r.data
           if (typeof (rec.result) === 'object') {
               self.recommendationlist.push(rec)
-              self.appendLog('app', 'K-GRID Service Response - Recommendation result for ' + rec.result.drug + ' returned from ' + r.data.info.ko.identifier)
+              self.appendLog('app', 'K-GRID Service Response - Recommendation result for ' + rec.result.drug + ' returned from ' + r.data.info.endpoint.identifier)
           } else {
             // self.appendLog('app', 'K-GRID Service Response - ' + rec.result + ' for ark:/' + r.data.info.ko)
           }
